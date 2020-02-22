@@ -1,0 +1,26 @@
+.swiperFrame {
+  position: relative;
+}
+
+.swiper {
+  width: 750rpx;
+}
+
+.slide-image {
+  width: 750rpx;
+}
+
+.numbers {
+  position: absolute;
+  right: 30rpx;
+  bottom: 30rpx;
+  width: 31rpx;
+  height: 31rpx;
+  border-radius: 50%;
+  background-color: black;
+  opacity: 0.4;
+  font-size: 20rpx;
+  color: white;
+  text-align: center;
+  padding: 12rpx 11rpx 6rpx 8rpx;
+}

@@ -1,0 +1,37 @@
+@import '~taro-ui/dist/style/components/icon.scss';
+
+.card-list-item {
+  position: relative;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eeeeee;
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.card-list-item:first-child {
+  margin-top: -24rpx;
+}
+
+.card-list-item:last-child {
+  border-bottom: none;
+  margin-bottom: -24rpx;
+}
+
+.card-list-item-title {
+  margin-left: 8rpx;
+  display: inline-block;
+}
+
+.card-list-item-arrow {
+  display: inline-block;
+  float: right;
+}
+
+.listButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  float: left;
+}

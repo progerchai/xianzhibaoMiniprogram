@@ -1,0 +1,50 @@
+.searchFrame {
+  height: 100%;
+  display: block;
+}
+
+.searchHistory {
+  color: #aaa;
+  padding: 10px;
+  font-size: 24px;
+}
+
+.searchTag {
+  margin: 10rpx 10rpx 0 10rpx;
+  float: left;
+}
+
+.clearHistory {
+  clear: both;
+  display: block;
+  width: 120rpx;
+  padding-top: 60rpx;
+  margin: 0 auto 500rpx auto;
+}
+
+.clearBtnTxt {
+  color: rgb(141, 139, 139);
+}
+
+.searchFrame {
+  background-color: #f8f8f8;
+  height: 80rpx;
+  padding: 10rpx 0 0 0;
+}
+
+.search {
+  height: 70rpx;
+  line-height: 70rpx;
+  padding-left: 25rpx;
+  color: #bcbcbcbc;
+  border-radius: 40rpx;
+  margin: 0 auto;
+  width: 700rpx;
+  background-color: white;
+  font-size: 28rpx;
+}
+
+.historyFrame {
+  float: left;
+  margin: 0 0 30rpx 0;
+}

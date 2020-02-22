@@ -1,0 +1,35 @@
+@import '~taro-ui/dist/style/components/flex.scss';
+
+.card {
+  margin: 24rpx;
+}
+
+.card-header {
+  padding: 24rpx;
+  border-radius: 8rpx 8rpx 0 0;
+  width: auto;
+  color: #333333;
+  background-color: #ffffff;
+}
+
+.card-header-dark {
+  color: #cccccc;
+  background-color: #2a2723;
+}
+
+.card-extra {
+  text-align: right;
+}
+
+.card-divider {
+  margin: 0 24rpx;
+  height: 2rpx;
+  width: auto;
+  // border-bottom: 1rpx solid #cccccc;
+}
+
+.card-content {
+  padding: 24rpx;
+  background-color: #ffffff;
+  border-radius: 0 0 8rpx 8rpx;
+}

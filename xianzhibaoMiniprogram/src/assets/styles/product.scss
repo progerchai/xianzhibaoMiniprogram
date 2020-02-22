@@ -1,0 +1,202 @@
+.product {
+  margin: 20rpx 8rpx 3rpx 11rpx;
+  width: 232rpx;
+  float: left;
+  font-size: 22px;
+}
+
+.productList {
+  margin: 8rpx 8rpx 3rpx 18rpx;
+  width: 750rpx;
+  float: left;
+  font-size: 22px;
+  position: relative;
+}
+
+.productPrice {
+  text-align: center;
+  margin: 4rpx 0;
+  font-size: 26px;
+  color: burlywood;
+}
+
+.lineThroughPrice {
+  text-decoration: line-through;
+  color: #999;
+  text-align: center;
+}
+
+.productListPrice {
+  width: 150rpx;
+  padding-left: 252rpx;
+  font-size: 26px;
+  color: burlywood;
+  display: block;
+  position: absolute;
+  bottom: 0;
+}
+
+.saleCountList {
+  width: 360rpx;
+  padding-left: 392rpx;
+  font-size: 26px;
+  display: block;
+  color: #999999;
+  position: absolute;
+  bottom: 0;
+}
+
+.addToCart {
+  position: absolute;
+  bottom: 20rpx;
+  right: 30rpx;
+}
+
+.productListTitle {
+  width: 480rpx;
+  padding: 10rpx 18rpx 0 20rpx;
+  float: left;
+  font-size: 26px;
+}
+
+.productGridTitle {
+  height: 70rpx;
+  line-height: 35rpx;
+  overflow: hidden;
+}
+
+.productImg {
+  width: 232rpx;
+  height: 232rpx;
+}
+
+.productListImg {
+  width: 222rpx;
+  float: left;
+}
+
+.checkboxImg {
+  width: 160rpx;
+  height: 160rpx;
+  float: left;
+}
+
+.readOnlyImg {
+  width: 160rpx;
+  height: 160rpx;
+  float: left;
+  margin-left: 30rpx;
+}
+
+.productCheckboxList {
+  padding: 10rpx 0 0 10rpx;
+  width: 750rpx;
+  float: left;
+  font-size: 22px;
+  position: relative;
+  margin: 7rpx 0 7rpx 0;
+  background-color: #fafafa;
+  height: 160rpx;
+  line-height: 180rpx;
+}
+
+.productCheckboxTitle {
+  height: 36rpx;
+  line-height: 36rpx;
+  width: 480rpx;
+  padding: 10rpx 18rpx 0 20rpx;
+  float: left;
+  font-size: 26px;
+}
+
+.productCheckboxListPrice {
+  width: 220rpx;
+  font-size: 30px;
+  color: burlywood;
+  display: block;
+  position: absolute;
+  top: 63rpx;
+  left: 255rpx;
+}
+
+.productListSpecs {
+  width: 320rpx;
+  height: 36rpx;
+  font-size: 25px;
+  color: #7a7a7a;
+  display: block;
+  position: absolute;
+  top: 23rpx;
+  left: 255rpx;
+}
+
+.productReadOnlyList {
+  width: 750rpx;
+  float: left;
+  font-size: 22px;
+  position: relative;
+  margin: 7rpx 0 7rpx 0;
+  background-color: #fafafa;
+  height: 160rpx;
+  line-height: 180rpx;
+}
+
+.productReadOnlyListSpecs {
+  width: 320rpx;
+  height: 36rpx;
+  font-size: 25px;
+  color: #7a7a7a;
+  display: block;
+  position: absolute;
+  top: 13rpx;
+  left: 205rpx;
+}
+
+.productReadOnlyListPrice {
+  width: 355rpx;
+  font-size: 30px;
+  color: burlywood;
+  display: block;
+  position: absolute;
+  top: 53rpx;
+  left: 205rpx;
+}
+
+.buyCount {
+  height: 36rpx;
+  font-size: 25px;
+  color: #7a7a7a;
+  display: block;
+  position: absolute;
+  top: 23rpx;
+  right: 65rpx;
+}
+
+.productSimpleList {
+  padding: 0 7.5rpx;
+}
+
+.simpleImg {
+  width: 355rpx;
+  height: 355rpx;
+}
+
+.productSimpleTitle {
+  height: 64rpx;
+  line-height: 36rpx;
+  overflow: hidden;
+  width: 355rpx;
+  padding: 10rpx;
+  float: left;
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.productSimpleListPrice {
+  width: 355rpx;
+  font-size: 32px;
+  color: burlywood;
+  display: block;
+  font-weight: 500;
+  padding-left: 10rpx;
+}

@@ -1,0 +1,121 @@
+.wrap {
+  width: 750rpx;
+  padding-left: 25rpx;
+  height: 150rpx;
+}
+
+.coupon {
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+}
+
+.couponLeft {
+  float: left;
+  width: 150rpx;
+  height: 150rpx;
+  position: relative;
+}
+
+.couponLeft::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: radial-gradient(circle at right top, transparent 10px, #c1a66d 10px, #c1a66d 10px);
+}
+
+.couponLeft::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: radial-gradient(circle at right bottom, transparent 10px, #c1a66d 10px, #c1a66d 10px);
+}
+
+.couponCon {
+  float: left;
+  width: 550rpx;
+  height: 150rpx;
+  position: relative;
+}
+
+.couponCon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: radial-gradient(circle at left top, transparent 10px, #c1a66d 10px, #fff 10px);
+}
+
+.couponCon::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: radial-gradient(circle at left bottom, transparent 10px, #c1a66d 10px, #fff 10px);
+}
+
+.couponPrice {
+  position: absolute;
+  color: white;
+  width: 150rpx;
+  float: left;
+  padding: 30rpx 0;
+  z-index: 811;
+  text-align: center;
+}
+
+.couponDesc {
+  top: 85rpx;
+  width: 150rpx;
+  height: 30rpx;
+  font-size: 20rpx;
+  position: absolute;
+  z-index: 811;
+  color: white;
+  text-align: center;
+}
+
+.useType {
+  padding: 5rpx;
+  float: left;
+  position: absolute;
+  left: 168rpx;
+  top: 26rpx;
+  background-color: #f5c645;
+  font-size: 18rpx;
+  border-radius: 20rpx;
+  color: rgb(255, 255, 255);
+}
+
+.couponExpire {
+  top: 95rpx;
+  float: left;
+  position: absolute;
+  left: 168rpx;
+  font-size: 25rpx;
+  color: #807d7d;
+}
+
+.getCoupon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 150rpx;
+  line-height: 150rpx;
+  width: 150rpx;
+  background-color: #e9c480;
+  color: white;
+  text-align: center;
+  padding: 0;
+}

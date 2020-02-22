@@ -2,16 +2,15 @@ import Taro, { Component } from "@tarojs/taro";
 import { View, Button, Text } from "@tarojs/components";
 // import { connect } from '@tarojs/redux'
 import FqBottom from "../../components/bottom";
-import FqSearchBar from "../../components/search_bar";
 // import { add, minus, asyncAdd } from '../../actions/counter'
 
-import "./index.scss";
+import "./cart.scss";
 
-class Index extends Component {
+class Cart extends Component {
   config = {
-    navigationBarTitleText: "首页"
+    navigationBarTitleText: "购物车"
   };
-
+  state = {};
   componentWillReceiveProps(nextProps) {
     console.log(this.props, nextProps);
   }
@@ -25,11 +24,10 @@ class Index extends Component {
   render() {
     return (
       <View className="container">
-        <FqSearchBar></FqSearchBar>
-        <FqBottom current={0}></FqBottom>
+        <FqBottom current={2}></FqBottom>
       </View>
     );
   }
 }
 
-export default Index;
+export default Cart;
