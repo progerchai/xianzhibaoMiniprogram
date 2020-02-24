@@ -1,0 +1,14 @@
+/*
+ *@description: swiper_img scss 轮播图组件scss样式
+ *@author: progerchai
+ *@e-mail: progerchai@qq.com
+ *@date: 2020-02-24 10:19:13
+*/
+.swiper_img {
+  width: 750px;
+  height: 300px;
+  .swiper_item {
+    width: 750px;
+    height: 320px !important;
+  }
+}

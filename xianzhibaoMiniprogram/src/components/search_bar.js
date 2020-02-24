@@ -30,7 +30,6 @@ export default class FqSearchBar extends Taro.Component {
   }
   componentDidShow() {
     const { searchType } = this.props;
-    console.log(this.props);
     // 获取机型
     this.setState({ searchType });
   }
