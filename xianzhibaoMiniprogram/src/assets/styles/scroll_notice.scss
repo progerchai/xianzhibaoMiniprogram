@@ -1,0 +1,37 @@
+/*
+ *@description: 公告轮播组件样式
+ *@author: progerchai
+ *@e-mail: progerchai@qq.com
+ *@date: 2020-02-24 11:21:29
+*/
+.scroll-wrap {
+  padding: 10px 0 10px 10px;
+  height: 50px;
+  line-height: 50px;
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.overflow {
+  overflow: hidden;
+}
+.left-icon {
+  font-size: 58px;
+  width: 50px;
+}
+.font28 {
+  font-size: 28px;
+}
+.relative {
+  position: relative;
+}
+.scroll {
+  flex: 1;
+  height: 40px;
+}
+.marquee_text {
+  white-space: nowrap;
+  position: absolute;
+  top: 0;
+}
