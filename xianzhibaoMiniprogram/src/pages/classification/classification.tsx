@@ -14,12 +14,11 @@ class Classification extends Component {
     // eslint-disable-next-line taro/duplicate-name-of-state-and-props
     _current: 0,
     tabList: [
-      { title: "标签页1" },
-      { title: "标签页2" },
-      { title: "标签页3" },
-      { title: "标签页4" },
-      { title: "标签页5" },
-      { title: "标签页6" }
+      { title: "淘书籍" },
+      { title: "淘潮牌" },
+      { title: "淘美妆" },
+      { title: "淘电子" },
+      { title: "淘生活" }
     ],
     model: ""
   };
@@ -46,54 +45,35 @@ class Classification extends Component {
             current={this.state._current}
             index={0}
           >
-            <View style="font-size:18px;text-align:center;">
-              标签页一的内容
-            </View>
+            <View style="font-size:18px;text-align:center;">淘书籍的内容</View>
           </AtTabsPane>
           <AtTabsPane
             tabDirection="vertical"
             current={this.state._current}
             index={1}
           >
-            <View style="font-size:18px;text-align:center;">
-              标签页二的内容
-            </View>
+            <View style="font-size:18px;text-align:center;">淘潮牌的内容</View>
           </AtTabsPane>
           <AtTabsPane
             tabDirection="vertical"
             current={this.state._current}
             index={2}
           >
-            <View style="font-size:18px;text-align:center;">
-              标签页三的内容
-            </View>
+            <View style="font-size:18px;text-align:center;">淘美妆的内容</View>
           </AtTabsPane>
           <AtTabsPane
             tabDirection="vertical"
             current={this.state._current}
             index={3}
           >
-            <View style="font-size:18px;text-align:center;">
-              标签页四的内容
-            </View>
+            <View style="font-size:18px;text-align:center;">淘电子的内容</View>
           </AtTabsPane>
           <AtTabsPane
             tabDirection="vertical"
             current={this.state._current}
             index={4}
           >
-            <View style="font-size:18px;text-align:center;">
-              标签页五的内容
-            </View>
-          </AtTabsPane>
-          <AtTabsPane
-            tabDirection="vertical"
-            current={this.state._current}
-            index={5}
-          >
-            <View style="font-size:18px;text-align:center;">
-              标签页六的内容
-            </View>
+            <View style="font-size:18px;text-align:center;">淘生活的内容</View>
           </AtTabsPane>
         </AtTabs>
         <FqBottom current={1}></FqBottom>

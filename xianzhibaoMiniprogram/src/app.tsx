@@ -26,6 +26,7 @@ class App extends Component {
   config: Config = {
     pages: [
       "pages/index/index",
+      "pages/index/search_page",
       "pages/classification/classification",
       "pages/cart/cart",
       "pages/activity/activity",

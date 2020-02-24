@@ -59,7 +59,6 @@ export default class FqBottom extends Component {
 
   async componentDidShow() {
     const { current } = this.props;
-    console.log(this.props);
     // 获取机型
     const system = await Taro.getSystemInfo();
     this.setState({ current, model: system.model });

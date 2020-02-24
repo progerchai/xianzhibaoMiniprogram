@@ -1,15 +1,14 @@
 import Taro, { Component } from "@tarojs/taro";
-import { View, Button, Text } from "@tarojs/components";
+import { View } from "@tarojs/components";
 // import { connect } from '@tarojs/redux'
-import FqBottom from "../../components/bottom";
 import FqSearchBar from "../../components/search_bar";
 // import { add, minus, asyncAdd } from '../../actions/counter'
 
 import "./index.scss";
 
-class Index extends Component {
+class SearchPage extends Component {
   config = {
-    navigationBarTitleText: "首页"
+    navigationBarTitleText: "搜索"
   };
 
   componentWillReceiveProps(nextProps) {
@@ -25,11 +24,10 @@ class Index extends Component {
   render() {
     return (
       <View className="container">
-        <FqSearchBar searchType={1}></FqSearchBar>
-        <FqBottom current={0}></FqBottom>
+        <FqSearchBar searchType={2}></FqSearchBar>
       </View>
     );
   }
 }
 
-export default Index;
+export default SearchPage;
