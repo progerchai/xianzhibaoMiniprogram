@@ -44,10 +44,8 @@ export default class FqScrollNotice extends Taro.Component {
         this.state.marqueeDistance * 2 <=
         -this.state.windowWidth - this.state.length
       ) {
-        console.log("我到头了");
         this.setState({ marqueeDistance: this.state.windowWidth });
       } else {
-        console.log("我在继续滚动");
         this.setState({ marqueeDistance: this.state.marqueeDistance - 1 });
       }
       this.run(length);

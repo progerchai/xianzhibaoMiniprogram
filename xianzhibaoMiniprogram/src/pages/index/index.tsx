@@ -3,8 +3,8 @@ import { View } from "@tarojs/components";
 // import { connect } from '@tarojs/redux'
 import FqSearchBar from "../../components/search_bar";
 import FqSwiperImg from "../../components/swiper_img";
+import FqCard from "../../components/card";
 import FqBottom from "../../components/bottom";
-// import { add, minus, asyncAdd } from '../../actions/counter'
 
 import "./index.scss";
 
@@ -40,6 +40,12 @@ class Index extends Component {
       <View className="container">
         <FqSearchBar searchType={1}></FqSearchBar>
         <FqSwiperImg swiperList={swiperList}></FqSwiperImg>
+        <FqCard
+          title="热搜推荐"
+          icon_left="laba"
+          message="查看更多"
+          icon_right="right"
+        ></FqCard>
         <FqBottom current={0}></FqBottom>
       </View>
     );

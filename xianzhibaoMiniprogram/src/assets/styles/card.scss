@@ -1,35 +1,30 @@
-@import '~taro-ui/dist/style/components/flex.scss';
-
-.card {
-  margin: 24rpx;
-}
-
-.card-header {
-  padding: 24rpx;
-  border-radius: 8rpx 8rpx 0 0;
-  width: auto;
-  color: #333333;
-  background-color: #ffffff;
-}
-
-.card-header-dark {
-  color: #cccccc;
-  background-color: #2a2723;
-}
-
-.card-extra {
-  text-align: right;
-}
-
-.card-divider {
-  margin: 0 24rpx;
-  height: 2rpx;
-  width: auto;
-  // border-bottom: 1rpx solid #cccccc;
-}
-
-.card-content {
-  padding: 24rpx;
-  background-color: #ffffff;
-  border-radius: 0 0 8rpx 8rpx;
+/*
+ *@description: card 卡片组件封装样式
+ *@author: progerchai
+ *@e-mail: progerchai@qq.com
+ *@date: 2020-02-25 16:36:15
+*/
+.card_box {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 0;
+  .left {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 14px;
+  }
+  .right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+  }
+  .card_box_text {
+    margin: 0 10px;
+  }
 }
