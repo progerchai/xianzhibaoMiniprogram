@@ -4,8 +4,8 @@ import { View } from "@tarojs/components";
 import FqSearchBar from "../../components/search_bar";
 import FqSwiperImg from "../../components/swiper_img";
 import FqCard from "../../components/card";
+import FqMenu from "../../components/menu";
 import FqBottom from "../../components/bottom";
-import IconFont from "../../components/iconfont";
 import "./index.scss";
 
 class Index extends Component {
@@ -46,7 +46,7 @@ class Index extends Component {
           message="查看更多"
           icon_right="right"
         ></FqCard> */}
-        <IconFont name="book-2"></IconFont>
+        <FqMenu></FqMenu>
 
         <FqBottom current={0}></FqBottom>
       </View>

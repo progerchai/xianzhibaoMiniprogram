@@ -31,7 +31,7 @@ class Activity extends Component {
           bgColor="#fffbe6"
           fontColor="#6d511e"
         ></FqScrollNotice>
-        <FqBottom current={3}></FqBottom>
+        <FqBottom current={1}></FqBottom>
       </View>
     );
   }

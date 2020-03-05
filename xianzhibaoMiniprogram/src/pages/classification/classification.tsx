@@ -1,7 +1,6 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Button, Text } from "@tarojs/components";
 // import { connect } from '@tarojs/redux'
-import FqBottom from "../../components/bottom";
 import { AtTabs, AtTabsPane } from "taro-ui";
 
 import "./classification.scss";
@@ -15,14 +14,22 @@ class Classification extends Component {
     _current: 0,
     tabList: [
       { title: "淘书籍" },
-      { title: "淘潮牌" },
+      { title: "淘服饰" },
       { title: "淘美妆" },
       { title: "淘电子" },
-      { title: "淘生活" }
+      { title: "淘鞋子" },
+      { title: "淘生活" },
+      { title: "宠物" }
     ],
     model: ""
   };
 
+  componentWillMount() {
+    const id = this.$router.params.id;
+    if (id && id != "7") {
+      this.setState({ _current: parseInt(id) });
+    }
+  }
   handleClick(value) {
     if (value === this.state._current) return;
     this.setState({
@@ -76,7 +83,6 @@ class Classification extends Component {
             <View style="font-size:18px;text-align:center;">淘生活的内容</View>
           </AtTabsPane>
         </AtTabs>
-        <FqBottom current={1}></FqBottom>
       </View>
     );
   }

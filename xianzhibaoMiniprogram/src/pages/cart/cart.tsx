@@ -24,7 +24,7 @@ class Cart extends Component {
   render() {
     return (
       <View className="container">
-        <FqBottom current={2}></FqBottom>
+        <FqBottom current={3}></FqBottom>
       </View>
     );
   }

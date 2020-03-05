@@ -19,20 +19,21 @@ export default class FqBottom extends Component {
         page: "/pages/index/index"
       },
       {
-        title: "分类",
-        iconType: "iconfont icon-list",
-        page: "/pages/classification/classification"
+        title: "活动",
+        iconType: "iconfont icon-huodong",
+        page: "/pages/activity/activity"
+      },
+      {
+        title: "发布",
+        iconType: "iconfont icon-add",
+        page: "/pages/publish/publish"
       },
       {
         title: "购物车",
         iconType: "iconfont icon-gouwuche",
         page: "/pages/cart/cart"
       },
-      {
-        title: "活动",
-        iconType: "iconfont icon-huodong",
-        page: "/pages/activity/activity"
-      },
+
       {
         title: "我的",
         iconType: "iconfont icon-gerenzhongxin",
