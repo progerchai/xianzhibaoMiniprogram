@@ -5,7 +5,7 @@ import FqSearchBar from "../../components/search_bar";
 import FqSwiperImg from "../../components/swiper_img";
 import FqCard from "../../components/card";
 import FqBottom from "../../components/bottom";
-
+import IconFont from "../../components/iconfont";
 import "./index.scss";
 
 class Index extends Component {
@@ -40,12 +40,14 @@ class Index extends Component {
       <View className="container">
         <FqSearchBar searchType={1}></FqSearchBar>
         <FqSwiperImg swiperList={swiperList}></FqSwiperImg>
-        <FqCard
+        {/* <FqCard
           title="热搜推荐"
           icon_left="laba"
           message="查看更多"
           icon_right="right"
-        ></FqCard>
+        ></FqCard> */}
+        <IconFont name="book-2"></IconFont>
+
         <FqBottom current={0}></FqBottom>
       </View>
     );

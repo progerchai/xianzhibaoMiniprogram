@@ -1,0 +1,10 @@
+{
+  "symbol_url": "http://at.alicdn.com/t/font_1649688_sezl77pf9gh.js",
+  "save_dir": "./src/components/iconfont",
+  "use_typescript": true,
+  "platforms": "*",
+  "use_rpx": true,
+  "trim_icon_prefix": "icon",
+  "default_icon_size": 18,
+  "component_name": "IconFont"
+}

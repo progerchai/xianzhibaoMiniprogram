@@ -3,4 +3,5 @@ deploy_versions/
 .temp/
 .rn_temp/
 node_modules/
+src/components/iconfont
 .DS_Store
