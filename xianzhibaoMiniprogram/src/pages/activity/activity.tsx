@@ -4,6 +4,7 @@ import { View, Button, Text } from "@tarojs/components";
 import FqBottom from "../../components/bottom";
 import FqScrollNotice from "../../components/scroll_notice";
 import FqBlock from "../../components/news_block";
+import NoData from "../../components/no_data";
 
 // import { add, minus, asyncAdd } from '../../actions/counter'
 
@@ -52,9 +53,19 @@ class Activity extends Component {
           bgColor="#fffbe6"
           fontColor="#6d511e"
         ></FqScrollNotice>
-        {active_list.map(item => {
-          return <FqBlock item={item}></FqBlock>;
-        })}
+        {active_list.length ? (
+          active_list.map(item => {
+            return (
+              <FqBlock
+                active_intr_text={item.active_intr_text}
+                active_img_url={item.active_img_url}
+                active_url={item.active_url}
+              ></FqBlock>
+            );
+          })
+        ) : (
+          <NoData desc={"暂无活动哦"} icon={"wushuju"}></NoData>
+        )}
         <FqBottom current={1}></FqBottom>
       </View>
     );
