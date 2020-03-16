@@ -14,7 +14,7 @@ export default class FqBlock extends Component {
   state = {};
 
   render() {
-    let { active_url, active_intr_text, active_img_url } = this.props.item;
+    let { active_url, active_intr_text, active_img_url } = this.props;
     return (
       <View className="menu_box">
         <View className="menu_box_content">
