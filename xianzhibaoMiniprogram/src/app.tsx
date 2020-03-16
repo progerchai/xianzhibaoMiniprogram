@@ -31,6 +31,7 @@ class App extends Component {
       "pages/publish/publish",
       "pages/cart/cart",
       "pages/activity/activity",
+      "pages/activity/artical",
       "pages/me/me"
     ],
     window: {
