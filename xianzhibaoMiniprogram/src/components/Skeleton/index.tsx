@@ -158,9 +158,9 @@ export default function Skeleton(props: SkeletonProps) {
       const arr = new Array(menuCount);
       return (
         <View className="skeleton-menu">
-          {arr.map(() => {
+          {arr.map(index => {
             return (
-              <View className="menu_item">
+              <View className="menu_item" key={index}>
                 <View className="menu_redius"></View>
                 <View className="menu_text"></View>
               </View>

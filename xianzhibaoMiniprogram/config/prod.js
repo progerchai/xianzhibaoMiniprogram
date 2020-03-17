@@ -3,7 +3,7 @@ module.exports = {
     NODE_ENV: '"production"'
   },
   defineConstants: {
-    // requestHost: "http://www.localproger.cn"
+    // requestHost: '"http://192.168.64.2/thinkphp/public/"'
   },
   // 小程序端专用配置
   weapp: {

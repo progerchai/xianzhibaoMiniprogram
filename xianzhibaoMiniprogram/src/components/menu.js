@@ -33,6 +33,7 @@ export default class FqMenu extends Component {
           {iconList.map(item => {
             return (
               <View
+                key={item}
                 className="menu_box_item"
                 onClick={this.handleSelect.bind(this, item.id)}
               >

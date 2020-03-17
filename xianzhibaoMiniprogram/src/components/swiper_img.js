@@ -24,7 +24,7 @@ export default class FqSwiperImg extends Component {
         >
           {swiperList.map(item => {
             return (
-              <SwiperItem>
+              <SwiperItem key={item}>
                 <Image
                   className="swiper_item"
                   mode="widthFix"

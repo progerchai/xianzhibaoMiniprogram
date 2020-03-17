@@ -30,8 +30,7 @@ export const request = async params => {
   let contentType = "application/x-www-form-urlencoded";
   contentType = params.contentType || contentType;
   let option = {
-    // url: requestHost + path,
-    url: "http://192.168.64.2/thinkphp/public/" + path,
+    url: requestHost + path,
     data: data,
     method: method,
     //   token暂时用伪造的替代
