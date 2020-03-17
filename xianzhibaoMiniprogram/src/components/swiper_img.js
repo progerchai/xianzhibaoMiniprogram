@@ -28,7 +28,7 @@ export default class FqSwiperImg extends Component {
                 <Image
                   className="swiper_item"
                   mode="widthFix"
-                  src={item}
+                  src={item.scroll_url}
                 ></Image>
               </SwiperItem>
             );
