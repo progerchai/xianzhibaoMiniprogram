@@ -29,17 +29,19 @@ export default class FqMenu extends Component {
     let { fontsize, iconList } = this.state;
     return (
       <View className="menu_box">
-        {iconList.map(item => {
-          return (
-            <View
-              className="menu_box_item"
-              onClick={this.handleSelect.bind(this, item.id)}
-            >
-              <IconFont name={item.icon} size={fontsize}></IconFont>
-              <Text>{item.title}</Text>
-            </View>
-          );
-        })}
+        <View className="menu_wrap">
+          {iconList.map(item => {
+            return (
+              <View
+                className="menu_box_item"
+                onClick={this.handleSelect.bind(this, item.id)}
+              >
+                <IconFont name={item.icon} size={fontsize}></IconFont>
+                <Text>{item.title}</Text>
+              </View>
+            );
+          })}
+        </View>
       </View>
     );
   }

@@ -7,6 +7,7 @@ import FqMenu from "../../components/menu";
 import FqBottom from "../../components/bottom";
 import "./index.scss";
 import Skeleton from "../../components/Skeleton";
+import service from "../../service";
 class Index extends Component {
   config = {
     navigationBarTitleText: "首页"
@@ -28,12 +29,17 @@ class Index extends Component {
       "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582521053272&di=5f3be4fac6e317318f69cd50aa8e538a&imgtype=0&src=http%3A%2F%2Fn3-q.mafengwo.net%2Fs10%2FM00%2FE8%2FD5%2FwKgBZ1h8w3OAX569AAD8G9nYTIA12.jpeg%3FimageView2%2F2%2Fw%2F600%2Fh%2F600%2Fq%2F90"
     ];
     this.setState({ swiperList });
+    this.requestDeleteOrder();
   }
   componentDidMount() {
     //节点加载完毕，关闭骨架屏
     this.setState({ loading: false });
   }
-
+  // 发送请求
+  async requestDeleteOrder() {
+    const result = await service.base.get_index();
+    // console.log(result);
+  }
   render() {
     let { swiperList } = this.state;
     return (

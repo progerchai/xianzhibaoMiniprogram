@@ -8,7 +8,6 @@ import Taro, { Component } from "@tarojs/taro";
 import { View, Image } from "@tarojs/components";
 
 import "./activity.scss";
-import { fail } from "assert";
 
 class Artical extends Component {
   config = {
