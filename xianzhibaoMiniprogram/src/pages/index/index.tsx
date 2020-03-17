@@ -3,16 +3,16 @@ import { View } from "@tarojs/components";
 // import { connect } from '@tarojs/redux'
 import FqSearchBar from "../../components/search_bar";
 import FqSwiperImg from "../../components/swiper_img";
-import FqCard from "../../components/card";
 import FqMenu from "../../components/menu";
 import FqBottom from "../../components/bottom";
 import "./index.scss";
-
+import Skeleton from "../../components/Skeleton";
 class Index extends Component {
   config = {
     navigationBarTitleText: "首页"
   };
   state = {
+    loading: true,
     swiperList: [
       "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582521053277&di=f0305c4e7932091c403e0a954adeb79e&imgtype=0&src=http%3A%2F%2Fs9.rr.itc.cn%2Fr%2FwapChange%2F20165_10_13%2Fa3tmof91145777543596.jpg"
     ]
@@ -22,7 +22,6 @@ class Index extends Component {
     console.log(this.props, nextProps);
   }
 
-  componentWillUnmount() {}
   componentWillMount() {
     const swiperList = [
       "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582521053277&di=f0305c4e7932091c403e0a954adeb79e&imgtype=0&src=http%3A%2F%2Fs9.rr.itc.cn%2Fr%2FwapChange%2F20165_10_13%2Fa3tmof91145777543596.jpg",
@@ -30,24 +29,33 @@ class Index extends Component {
     ];
     this.setState({ swiperList });
   }
-  componentDidShow() {}
-
-  componentDidHide() {}
+  componentDidMount() {
+    //节点加载完毕，关闭骨架屏
+    this.setState({ loading: false });
+  }
 
   render() {
     let { swiperList } = this.state;
     return (
       <View className="container">
-        <FqSearchBar searchType={1}></FqSearchBar>
-        <FqSwiperImg swiperList={swiperList}></FqSwiperImg>
-        {/* <FqCard
+        <Skeleton
+          loading={this.state.loading}
+          searchbar
+          boxImg
+          menu
+          body
+          action
+        >
+          <FqSearchBar searchType={1}></FqSearchBar>
+          <FqSwiperImg swiperList={swiperList}></FqSwiperImg>
+          {/* <FqCard
           title="热搜推荐"
           icon_left="laba"
           message="查看更多"
           icon_right="right"
         ></FqCard> */}
-        <FqMenu></FqMenu>
-
+          <FqMenu></FqMenu>
+        </Skeleton>
         <FqBottom current={0}></FqBottom>
       </View>
     );
