@@ -46,12 +46,6 @@ class Index extends Component {
         >
           <FqSearchBar searchType={1}></FqSearchBar>
           <FqSwiperImg swiperList={swiperList}></FqSwiperImg>
-          {/* <FqCard
-          title="热搜推荐"
-          icon_left="laba"
-          message="查看更多"
-          icon_right="right"
-        ></FqCard> */}
           <FqMenu></FqMenu>
         </Skeleton>
         <FqBottom current={0}></FqBottom>
