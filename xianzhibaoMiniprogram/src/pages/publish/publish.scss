@@ -1,4 +1,33 @@
-.index {
-  flex-direction: column;
+.margin {
+  Text {
+    margin: 10px;
+  }
+}
+.line {
+  height: 1px;
+}
+.textarea {
+  border: none;
+  border-radius: 0%;
+  background-color: #fafbfc;
+}
+.imagepicker {
+  background-color: #fafbfc;
+}
+.btn_submit {
+  background-color: #f94b47;
+  border: none;
+  border-radius: 5px;
+  height: 80px;
   width: 100%;
+  align-items: center;
+  margin-top: 20px;
+}
+//警示文字
+.notice {
+  color: #c1c1c1;
+  font-size: 28px;
+  .red {
+    color: red;
+  }
 }

@@ -1,0 +1,20 @@
+.input_box {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  .star {
+    margin-left: 10px;
+    margin-right: -16px;
+  }
+
+  .red {
+    color: red;
+  }
+  .none {
+    visibility: hidden;
+  }
+}
+.at-input {
+  margin-left: 10px;
+}
