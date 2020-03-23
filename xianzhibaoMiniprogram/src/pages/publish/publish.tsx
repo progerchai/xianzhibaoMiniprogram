@@ -24,8 +24,20 @@ class Publish extends Component {
     brand: "", //宝贝品牌
     price: 0.0, //价格
     size: "", //宝贝尺寸
+    model: "", //商品型号
+
     pick_place: "",
     files: [], //图片
+    classify_selector: [
+      "书籍类",
+      "服饰类",
+      "美妆类",
+      "电子类",
+      "鞋子类",
+      "生活类",
+      "宠物类"
+    ],
+    classify: "生活类", //商品分类
     depreciation_selector: ["99新", "88新", "66新"],
     depreciation: "99新", //折旧程度
     save_time_selector: ["<=一周", "<=一个月", "<=半年", "半年以上"],
@@ -61,6 +73,8 @@ class Publish extends Component {
     this.setState({
       name: "",
       description: "",
+      classify: "生活类",
+      model: "",
       files: [],
       depreciation: "99新",
       save_time: "<=一周",
@@ -72,7 +86,7 @@ class Publish extends Component {
     });
   }
   onSelectChange(name, e) {
-    //修改折旧程度
+    //修改 picker数据
     switch (name) {
       case "depreciation":
         this.setState({
@@ -87,6 +101,11 @@ class Publish extends Component {
       case "weight":
         this.setState({
           save_time: this.state.weight_selector[e.detail.value]
+        });
+        break;
+      case "classify":
+        this.setState({
+          classify: this.state.classify_selector[e.detail.value]
         });
         break;
     }
@@ -122,6 +141,13 @@ class Publish extends Component {
           value={this.state.price}
           handleChange={this.handleChange.bind(this, "price")}
         ></FqInput>
+        <FqPicker
+          isRed
+          title="商品类别"
+          selector={this.state.classify_selector}
+          selectorChecked={this.state.classify}
+          onSelectChange={this.onSelectChange.bind(this, "classify")}
+        ></FqPicker>
         <FqInput
           name="size"
           title="尺寸"
@@ -129,6 +155,14 @@ class Publish extends Component {
           placeholder="尺寸"
           value={this.state.size}
           handleChange={this.handleChange.bind(this, "size")}
+        ></FqInput>
+        <FqInput
+          name="model"
+          title="型号"
+          type="text"
+          placeholder="型号"
+          value={this.state.model}
+          handleChange={this.handleChange.bind(this, "model")}
         ></FqInput>
         <FqPicker
           isRed
