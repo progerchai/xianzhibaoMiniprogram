@@ -1,0 +1,46 @@
+.picker_box {
+  width: 100%;
+  display: felx;
+  flex-direction: row;
+  .star {
+    margin-left: 10px;
+    margin-right: -16px;
+  }
+  .red {
+    color: red;
+  }
+  .none {
+    visibility: hidden;
+  }
+  .picker_content {
+    display: inline-block;
+    margin-left: 32px;
+    padding: 24px 0;
+    width: 544px;
+    position: relative;
+    // border-bottom: #c1c1c1 1px solid;
+    .picker {
+      width: 172px;
+      margin-right: 16px;
+    }
+    .picker_result {
+      margin-left: 44px;
+      color: #c1c1c1;
+    }
+  }
+  //设置 0.5px 底部边框
+  .picker_content:before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 1px;
+    bottom: 0;
+    border-bottom: 2px solid #d6e4ef;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scale(0.5, 0.5);
+    transform: scale(0.5, 0.5);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}

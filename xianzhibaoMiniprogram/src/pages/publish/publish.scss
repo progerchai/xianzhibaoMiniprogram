@@ -1,9 +1,12 @@
+@import "~taro-ui/dist/style/components/image-picker.scss";
+@import "~taro-ui/dist/style/components/textarea.scss";
 .margin {
   Text {
     margin: 10px;
   }
 }
 .line {
+  margin-top: 10px;
   height: 1px;
 }
 .textarea {
@@ -25,7 +28,7 @@
 }
 //警示文字
 .notice {
-  color: #c1c1c1;
+  color: #333;
   font-size: 28px;
   .red {
     color: red;
