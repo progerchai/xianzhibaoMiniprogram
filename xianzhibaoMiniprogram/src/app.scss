@@ -1,2 +1,6 @@
 @import "~taro-ui/dist/style/index.scss";
 @import "~taro-ui/dist/style/components/icon.scss";
+//全局 input组件样式->颜色默认为#c1c1c1
+.at-input input {
+  color: #c1c1c1;
+}

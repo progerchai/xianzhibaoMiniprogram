@@ -1,5 +1,7 @@
-import base from "./base";
+import index_page from "./index_page";
+import publish from "./publish";
 
 export default {
-  base
+  index_page,
+  publish
 };

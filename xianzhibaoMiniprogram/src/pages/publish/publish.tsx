@@ -11,6 +11,7 @@ import {
 import FqInput from "../../components/input";
 import FqPicker from "../../components/picker";
 import FqBottom from "../../components/bottom";
+import service from "../../service";
 
 import "./publish.scss";
 
@@ -22,33 +23,26 @@ class Publish extends Component {
     name: "", //宝贝名称
     description: "", //宝贝描述
     brand: "", //宝贝品牌
-    price: 0.0, //价格
+    price: "", //价格
     size: "", //宝贝尺寸
     model: "", //商品型号
 
     pick_place: "",
     files: [], //图片
-    classify_selector: [
-      "书籍类",
-      "服饰类",
-      "美妆类",
-      "电子类",
-      "鞋子类",
-      "生活类",
-      "宠物类"
-    ],
-    classify: "生活类", //商品分类
+    classify_selector: ["书籍", "服饰", "美妆", "电子", "鞋子", "生活", "宠物"],
+    classify: "生活", //商品分类
     depreciation_selector: ["99新", "88新", "66新"],
     depreciation: "99新", //折旧程度
     save_time_selector: ["<=一周", "<=一个月", "<=半年", "半年以上"],
     save_time: "<=一周", //持有时间
     weight_selector: ["<1kg", "1kg-2.5kg", ">2.5kg"],
-    weight: "<1kg" //宝贝重量
+    weight: "<1kg", //宝贝重量
+    image_list: [] //宝贝上传图片
   };
   // 评论输入
   handleTextChange(event) {
     this.setState({
-      comments: event.target.value
+      description: event.target.value
     });
   }
   //修改对应inpup内容
@@ -64,16 +58,73 @@ class Publish extends Component {
     });
   }
   //image picker function end
+  // 检查价格的合理性
+  checkNumber(num: any) {
+    if (!num) return "请填写宝贝价格";
+    if (parseFloat(num) != num) return "宝贝价格请填写数字";
+    if (parseFloat(num).toFixed(0) == num || parseFloat(num).toFixed(1) == num)
+      return "数字正确";
+    if (parseFloat(num).toFixed(2) != num) {
+      return "价格最多保留两位小树";
+    } else return "数字正确";
+  }
   //表单提交
-  onSubmit() {
-    console.log("表单提交");
-    var state = this.state;
+  async onSubmit() {
+    let {
+      name,
+      description,
+      brand,
+      price,
+      size,
+      model,
+      pick_place,
+      classify,
+      depreciation,
+      save_time,
+      weight,
+      image_list
+    } = this.state;
+    // 格式校验 + 图片url分配到image_url1、2、3
+    let check = "";
+    if (!name) {
+      check = "宝贝名称不能为空哦";
+    } else if (this.checkNumber(price) != "数字正确") {
+      check = this.checkNumber(price);
+    } else if (!pick_place) {
+      check = "请填写可取件地点";
+    } else if (!description) {
+      check = "请填写商品描述";
+    } else if (!save_time) {
+      check = "请至少上传一张宝贝照片";
+    }
+    if (check) {
+      Taro.showToast({ title: check, icon: "none", duration: 1500 });
+      return false;
+    }
+    // const result = await service.publish.get_index_message();
+    const result = await service.publish.upload_goods({
+      name: name,
+      description: description,
+      brand: brand,
+      price: price,
+      size: size,
+      model: model,
+      pick_place: pick_place,
+      classify: classify,
+      depreciation: depreciation,
+      save_time: save_time,
+      weight: weight,
+      image_url1: 11,
+      image_url2: 11,
+      image_url3: 11
+    });
+    console.log(result);
   }
   onReset() {
     this.setState({
       name: "",
       description: "",
-      classify: "生活类",
+      classify: "生活",
       model: "",
       files: [],
       depreciation: "99新",

@@ -29,7 +29,7 @@ class Index extends Component {
   }
   //获取首页数据
   async requestIndexMessage() {
-    const result = await service.base.get_index_message();
+    const result = await service.index_page.get_index_message();
     this.setState({ swiperList: result.imglist });
   }
   render() {
