@@ -1,96 +1,35 @@
-.orderCondition {
-  width: 187.5rpx;
-  float: left;
-  font-size: 28px;
-  text-align: center;
-  margin: 13px auto;
-}
-
-.orderSelect {
-  color: burlywood;
-}
-
-.priceFrame {
-  width: 80rpx;
+.productflow {
+  width: 98%;
   margin: 0 auto;
-}
-
-.orderPrice {
-  float: left;
-}
-
-.upDownFrame {
-  width: 13px;
-  height: 20px;
-  display: block;
-  float: right;
-}
-
-.upDownFrame at-icon {
-  float: left;
-}
-
-.upDownFrame at-icon text {
-  float: left;
-}
-
-.upDown {
-  height: 8px;
-  float: left;
-}
-
-.search {
-  color: #aaa;
-  font-size: 24px;
-  margin-right: 32rpx;
-}
-
-.products {
-  width: 750rpx;
-  border-top: 1rpx solid #d6e4ef;
-  float: left;
-}
-
-.checkboxProducts {
-  margin: 10rpx 0 80rpx 0;
-  width: 750rpx;
-  float: left;
-}
-
-.normalList {
-  margin: 10rpx 0 20rpx 0;
-  float: left;
-}
-
-.noBorder {
-  border: none;
-}
-
-.productFrame {
-  float: left;
-}
-
-.checkMore {
-  width: 740rpx;
-  height: 60rpx;
-  line-height: 60rpx;
-  margin: 15rpx auto 15rpx auto;
-  float: left;
-  text-align: center;
-  border: 1px solid #eeecec;
-  color: #c7c2c2;
-  font-weight: 300;
-}
-
-.simpleList {
-  width: 750rpx;
-  height: 100%;
-  float: left;
-  overflow: hidden;
-}
-
-.simpleProductFrame {
-  width: 375rpx;
-  float: left;
-  margin: 8rpx auto;
+  .product_item {
+    float: left;
+    width: 50%;
+    margin-bottom: 10px;
+    .product_box {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      width: 99%;
+      border-radius: 10px;
+      .product_image {
+        width: 98%;
+        margin: 0 auto;
+        border-radius: 2%;
+      }
+      .product_description {
+        padding: 16px 0;
+        height: 46px;
+        width: 100%;
+        line-height: 23px;
+        overflow: hidden;
+        Text {
+          display: inline;
+          margin: 0 5px;
+        }
+        .price {
+          color: red;
+        }
+      }
+    }
+  }
 }

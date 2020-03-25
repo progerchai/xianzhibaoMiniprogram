@@ -5,6 +5,7 @@ import FqSearchBar from "../../components/search_bar";
 import FqSwiperImg from "../../components/swiper_img";
 import FqMenu from "../../components/menu";
 import FqBottom from "../../components/bottom";
+import FqProductList from "../../components/product_list";
 import "./index.scss";
 import Skeleton from "../../components/Skeleton";
 import service from "../../service";
@@ -14,7 +15,63 @@ class Index extends Component {
   };
   state = {
     loading: true,
-    swiperList: []
+    swiperList: [],
+    product_list: [
+      {
+        name: "商品1asd",
+        description:
+          "描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述",
+        classify: "生活",
+        model: "型号",
+        files: [],
+        depreciation: "99新",
+        save_time: "<=一周",
+        weight: "<1kg",
+        brand: "",
+        price: 0.0,
+        size: "",
+        pick_place: "",
+        image_url1: "",
+        image_url2: "",
+        image_url3: ""
+      },
+      {
+        name: "商品2",
+        description:
+          "描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述",
+        classify: "生活",
+        model: "型号",
+        files: [],
+        depreciation: "99新",
+        save_time: "<=一周",
+        weight: "<1kg",
+        brand: "",
+        price: 0.0,
+        size: "",
+        pick_place: "",
+        image_url1: "",
+        image_url2: "",
+        image_url3: ""
+      },
+      {
+        name: "商品3",
+        description:
+          "描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述",
+        classify: "生活",
+        model: "型号",
+        files: [],
+        depreciation: "99新",
+        save_time: "<=一周",
+        weight: "<1kg",
+        brand: "",
+        price: 0.0,
+        size: "",
+        pick_place: "",
+        image_url1: "",
+        image_url2: "",
+        image_url3: ""
+      }
+    ]
   };
 
   componentWillReceiveProps(nextProps) {
@@ -47,6 +104,7 @@ class Index extends Component {
           <FqSearchBar searchType={1}></FqSearchBar>
           <FqSwiperImg swiperList={swiperList}></FqSwiperImg>
           <FqMenu></FqMenu>
+          <FqProductList product_list={this.state.product_list}></FqProductList>
         </Skeleton>
         <FqBottom current={0}></FqBottom>
       </View>
