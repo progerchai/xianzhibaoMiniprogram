@@ -9,12 +9,14 @@ import FqProductList from "../../components/product_list";
 import "./index.scss";
 import Skeleton from "../../components/Skeleton";
 import service from "../../service";
+
 class Index extends Component {
   config = {
     navigationBarTitleText: "首页",
   };
   state = {
     loading: true,
+    city: null,
     swiperList: [],
     product_list: [
       {
@@ -77,12 +79,44 @@ class Index extends Component {
   componentWillReceiveProps(nextProps) {
     console.log(this.props, nextProps);
   }
-
-  componentWillMount() {}
   componentDidMount() {
     //节点加载完毕，关闭骨架屏
     this.setState({ loading: false });
     this.requestIndexMessage();
+    //获取地址
+    let city = Taro.getStorageSync("city");
+    if (city) {
+      this.setState({ city });
+    } else {
+      this.getLocation();
+    }
+  }
+  // 获取用户的地理位置
+  async getLocation() {
+    let point = await Taro.getLocation();
+    let position = await this.reverseGeocoder(point);
+    let city = position.result.address_component.city;
+    console.log(position);
+    this.setState({ city });
+    Taro.setStorageSync("city", city);
+  }
+  // 坐标逆解析方法
+  reverseGeocoder(obj) {
+    var QQMapWX = require("../../utils/qqmap-wx-jssdk1.2/qqmap-wx-jssdk");
+    var qqmapsdk = new QQMapWX({
+      key: "APTBZ-BN236-BQ6S2-EA7JA-S3XGS-HIF3J", // 必填
+    });
+    return new Promise((resolve, reject) => {
+      qqmapsdk.reverseGeocoder({
+        location: obj,
+        success(res) {
+          resolve(res);
+        },
+        fail(res) {
+          reject(res);
+        },
+      });
+    });
   }
   //获取首页数据
   async requestIndexMessage() {
@@ -104,7 +138,7 @@ class Index extends Component {
           <FqSearchBar
             searchType={1}
             isPosition={true}
-            position={"wuhan"}
+            position={this.state.city}
           ></FqSearchBar>
           <FqSwiperImg swiperList={swiperList}></FqSwiperImg>
           <FqMenu></FqMenu>
