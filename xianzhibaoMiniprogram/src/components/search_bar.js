@@ -6,18 +6,20 @@
  *@date: 2020-02-24 09:27:22
 */
 import Taro from "@tarojs/taro";
-import { AtSearchBar } from "taro-ui";
+import { AtSearchBar, AtIcon } from "taro-ui";
+import { View } from "@tarojs/components";
+import "../assets/styles/search_bar.scss";
 export default class FqSearchBar extends Taro.Component {
   constructor() {
     super(...arguments);
     this.state = {
       value: "",
-      searchType: 1
+      searchType: 1,
     };
   }
   onChange(value) {
     this.setState({
-      value: value
+      value: value,
     });
   }
   onActionClick() {
@@ -34,15 +36,31 @@ export default class FqSearchBar extends Taro.Component {
     this.setState({ searchType });
   }
   render() {
+    let { isPosition = false, searchType = 2, position = null } = this.props;
     return (
-      <AtSearchBar
-        actionName="搜索"
-        value={this.state.value}
-        onChange={this.onChange.bind(this)}
-        onActionClick={this.onActionClick.bind(this)}
-        onFocus={this.onFocus.bind(this)}
-        searchType={this.state.searchType}
-      />
+      <View className="top_bar">
+        {isPosition ? (
+          <View className="position">
+            <AtIcon
+              prefixClass="icon"
+              value="dingwei"
+              size="20"
+              color="#c1c1c1"
+            ></AtIcon>
+            {position}
+          </View>
+        ) : null}
+        <View className="search_bar">
+          <AtSearchBar
+            actionName="搜索"
+            value={this.state.value}
+            onChange={this.onChange.bind(this)}
+            onActionClick={this.onActionClick.bind(this)}
+            onFocus={this.onFocus.bind(this)}
+            searchType={searchType}
+          />
+        </View>
+      </View>
     );
   }
 }

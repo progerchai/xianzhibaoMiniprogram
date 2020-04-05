@@ -11,7 +11,7 @@ import Skeleton from "../../components/Skeleton";
 import service from "../../service";
 class Index extends Component {
   config = {
-    navigationBarTitleText: "首页"
+    navigationBarTitleText: "首页",
   };
   state = {
     loading: true,
@@ -33,7 +33,7 @@ class Index extends Component {
         pick_place: "",
         image_url1: "",
         image_url2: "",
-        image_url3: ""
+        image_url3: "",
       },
       {
         name: "商品2",
@@ -51,7 +51,7 @@ class Index extends Component {
         pick_place: "",
         image_url1: "",
         image_url2: "",
-        image_url3: ""
+        image_url3: "",
       },
       {
         name: "商品3",
@@ -69,9 +69,9 @@ class Index extends Component {
         pick_place: "",
         image_url1: "",
         image_url2: "",
-        image_url3: ""
-      }
-    ]
+        image_url3: "",
+      },
+    ],
   };
 
   componentWillReceiveProps(nextProps) {
@@ -101,7 +101,11 @@ class Index extends Component {
           body
           action
         >
-          <FqSearchBar searchType={1}></FqSearchBar>
+          <FqSearchBar
+            searchType={1}
+            isPosition={true}
+            position={"wuhan"}
+          ></FqSearchBar>
           <FqSwiperImg swiperList={swiperList}></FqSwiperImg>
           <FqMenu></FqMenu>
           <FqProductList product_list={this.state.product_list}></FqProductList>

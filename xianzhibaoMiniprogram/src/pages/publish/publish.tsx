@@ -5,7 +5,7 @@ import {
   AtTextarea,
   AtImagePicker,
   AtButton,
-  AtForm
+  AtForm,
 } from "taro-ui";
 // import { connect } from '@tarojs/redux'
 import FqInput from "../../components/input";
@@ -17,7 +17,7 @@ import "./publish.scss";
 
 class Publish extends Component {
   config = {
-    navigationBarTitleText: "发布"
+    navigationBarTitleText: "发布",
   };
   state = {
     name: "", //宝贝名称
@@ -37,24 +37,24 @@ class Publish extends Component {
     save_time: "<=一周", //持有时间
     weight_selector: ["<1kg", "1kg-2.5kg", ">2.5kg"],
     weight: "<1kg", //宝贝重量
-    image_list: [] //宝贝上传图片
+    image_list: [], //宝贝上传图片
   };
   // 评论输入
   handleTextChange(event) {
     this.setState({
-      description: event.target.value
+      description: event.target.value,
     });
   }
   //修改对应inpup内容
   handleChange(name, value) {
     this.setState({
-      [name]: value
+      [name]: value,
     });
   }
   //image picker function
   onImageChange(files) {
     this.setState({
-      files
+      files,
     });
   }
   //image picker function end
@@ -82,7 +82,7 @@ class Publish extends Component {
       depreciation,
       save_time,
       weight,
-      image_list
+      image_list,
     } = this.state;
     // 格式校验 + 图片url分配到image_url1、2、3
     let check = "";
@@ -116,7 +116,7 @@ class Publish extends Component {
       weight: weight,
       image_url1: 11,
       image_url2: 11,
-      image_url3: 11
+      image_url3: 11,
     });
     console.log(result);
   }
@@ -133,7 +133,7 @@ class Publish extends Component {
       brand: "",
       price: 0.0,
       size: "",
-      pick_place: ""
+      pick_place: "",
     });
   }
   onSelectChange(name, e) {
@@ -141,22 +141,22 @@ class Publish extends Component {
     switch (name) {
       case "depreciation":
         this.setState({
-          depreciation: this.state.depreciation_selector[e.detail.value]
+          depreciation: this.state.depreciation_selector[e.detail.value],
         });
         break;
       case "save_time":
         this.setState({
-          save_time: this.state.save_time_selector[e.detail.value]
+          save_time: this.state.save_time_selector[e.detail.value],
         });
         break;
       case "weight":
         this.setState({
-          save_time: this.state.weight_selector[e.detail.value]
+          save_time: this.state.weight_selector[e.detail.value],
         });
         break;
       case "classify":
         this.setState({
-          classify: this.state.classify_selector[e.detail.value]
+          classify: this.state.classify_selector[e.detail.value],
         });
         break;
     }
