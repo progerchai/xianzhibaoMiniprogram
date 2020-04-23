@@ -22,15 +22,15 @@ export default class FqProductList extends Component {
               <View className="product_box">
                 <Image
                   className="product_image"
-                  src={
-                    "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1281982941,672088714&fm=26&gp=0.jpg"
-                  }
-                  mode="widthFix"
+                  src={item.image_url1}
+                  mode="aspectFill"
                 ></Image>
-                <View className="product_description">
-                  <Text>{item.name}</Text>
-                  <Text className="price">{`¥${item.price.toFixed(2)}`}</Text>
-                </View>
+              </View>
+              <View className="product_description">
+                <Text className="prodectText">
+                  {item.name},{item.description}
+                </Text>
+                <View className="price">{`¥ ${item.price.toFixed(2)}`}</View>
               </View>
             </View>
           );

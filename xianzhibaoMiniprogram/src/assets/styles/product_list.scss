@@ -10,25 +10,34 @@
       flex-direction: column;
       margin: 0 auto;
       width: 99%;
+      height: 356px;
       border-radius: 10px;
+      justify-content: center;
       .product_image {
         width: 98%;
         margin: 0 auto;
         border-radius: 2%;
       }
-      .product_description {
-        padding: 16px 0;
-        height: 46px;
+    }
+    .product_description {
+      padding: 16px 0;
+      // height: 60px;
+      width: 100%;
+      line-height: 1.2;
+      overflow: hidden;
+      .prodectText {
         width: 100%;
-        line-height: 23px;
-        overflow: hidden;
-        Text {
-          display: inline;
-          margin: 0 5px;
-        }
-        .price {
-          color: red;
-        }
+        overflow: hidden; //一定要写
+        text-overflow: ellipsis; //超出省略号
+        display: -webkit-box; //一定要写
+        -webkit-line-clamp: 2; //控制行数
+        /* autoprefixer: ignore next */
+        -webkit-box-orient: vertical; //一定要写
+        word-break: break-all;
+      }
+      .price {
+        color: red;
+        text-align: center;
       }
     }
   }
