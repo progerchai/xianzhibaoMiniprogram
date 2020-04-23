@@ -12,6 +12,7 @@ import FqInput from "../../components/input";
 import FqPicker from "../../components/picker";
 import FqBottom from "../../components/bottom";
 import service from "../../service";
+import * as qiniu from "qiniu-js";
 
 import "./publish.scss";
 
@@ -56,6 +57,117 @@ class Publish extends Component {
     this.setState({
       files,
     });
+    console.log(this.state.files);
+  }
+  async uploadImages() {
+    console.log("上传图片");
+    let result = await new Promise((resolve, reject) => {
+      Taro.request({
+        url: "http://192.168.64.2/thinkphp/public/qiniu/upload_image_get_token",
+        data: {},
+        header: { "content-type": "application/json" },
+        success: function (res) {
+          resolve(res);
+        },
+        fail: function (res) {
+          reject(res);
+        },
+      });
+    });
+
+    const token = (result as any).data.token;
+    console.log(this.state.files);
+    let base64 = await this.imgOnChange(this.state.files);
+    let blobImg = this.convertBase64UrlToBlob(base64);
+    console.log(blobImg);
+
+    // var putExtra = {
+    //   fname: "info",
+    //   params: {},
+    //   mimeType: ["image/png", "image/jpeg", "image/gif"],
+    // };
+    // var config = {
+    //   useCdnDomain: false,
+    //   region: qiniu.region.z0,
+    // };
+    // let observe = {
+    //   next(res) {
+    //     console.log("已上传大小，单位为字节：" + res.total.loaded);
+    //     console.log("本次上传的总量控制信息，单位为字节：" + res.total.size);
+    //     console.log("当前上传进度，范围：0～100：" + res.total.percent);
+    //   },
+    //   error(err) {
+    //     console.log(err);
+    //     console.log(err.code);
+    //     console.log(err.message);
+    //     console.log(err.isRequestError);
+    //     console.log(err.reqId);
+    //   },
+    //   complete(res) {
+    //     //完成后的操作
+    //     //上传成功以后会返回key 和 hash  key就是文件名了！
+    //     console.log(res);
+    //   },
+    // };
+    // let observable = qiniu.upload(
+    //   (this.state.files[0] as any).file.path,
+    //   null,
+    //   token,
+    //   putExtra,
+    //   config
+    // );
+    // let subscription = observable.subscribe(observe);
+    // console.log(subscription);
+    // console.log(upload_res);
+  }
+  //图片转化为base64
+  async imgOnChange(files) {
+    return new Promise((resolve, reject) => {
+      Taro.request({
+        url: files[0].url,
+        responseType: "arraybuffer", //最关键的参数，设置返回的数据格式为arraybuffer
+        success: (res) => {
+          //把arraybuffer转成base64
+          let base64 = Taro.arrayBufferToBase64(res.data);
+          //不加上这串字符，在无法显示
+          base64 = "data:image/jpeg;base64," + base64;
+          //查看base64字符串，也可到网页校验一下是否能还原为你的图片
+          resolve(base64);
+        },
+        fail: (res) => {
+          reject(res);
+        },
+      });
+    });
+  }
+  /**
+   * 将以base64的图片url数据转换为Blob
+   * @param base64    用url方式表示的base64图片数据
+   * @return blob     返回blob对象
+   */
+  // convertBase64UrlToBlob(base64) {
+  //   if (!base64) return null;
+  //   var type = base64.split(",")[0].match(/:(.*?);/)[1]; //提取base64头的type如 'image/png'
+  //   var bytes = window.atob(base64.split(",")[1]); //去掉url的头，并转换为byte (atob:编码 btoa:解码)
+
+  //   //处理异常,将ascii码小于0的转换为大于0
+  //   var ab = new ArrayBuffer(bytes.length); //通用的、固定长度(bytes.length)的原始二进制数据缓冲区对象
+  //   var ia = new Uint8Array(ab);
+  //   for (var i = 0; i < bytes.length; i++) {
+  //     ia[i] = bytes.charCodeAt(i);
+  //   }
+  //   return new Blob([ab], { type: type });
+  // }
+  convertBase64UrlToBlob(base64) {
+    var arr = base64.split(","),
+      mime = arr[0].match(/:(.*?);/)[1],
+      bstr = atob(arr[1]),
+      n = bstr.length,
+      u8arr = new Uint8Array(n);
+    while (n--) {
+      u8arr[n] = bstr.charCodeAt(n);
+    }
+    return new Blob([u8arr], { type: mime });
   }
   //image picker function end
   // 检查价格的合理性
@@ -268,6 +380,14 @@ class Publish extends Component {
           files={this.state.files}
           onChange={this.onImageChange.bind(this)}
         />
+        <AtButton
+          className="btn_submit"
+          type="primary"
+          size="normal"
+          onClick={this.uploadImages.bind(this)}
+        >
+          上传图片
+        </AtButton>
         <AtButton
           className="btn_submit"
           type="primary"

@@ -45,6 +45,7 @@
 		"babel-runtime": "^6.26.0",
 		"nerv-devtools": "^1.5.6",
 		"nervjs": "^1.5.6",
+		"qiniu-js": "^2.5.5",
 		"redux": "^4.0.0",
 		"redux-logger": "^3.0.6",
 		"redux-thunk": "^2.3.0",
