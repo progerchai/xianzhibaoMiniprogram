@@ -10,7 +10,7 @@ export default class FqBuyBar extends Component {
 
   state = {
     // 伪数据
-    product: [{}, {}],
+    products: [{}, {}],
     // 被勾选中的商品数量
     chooseNumber: 1,
     // 全选
