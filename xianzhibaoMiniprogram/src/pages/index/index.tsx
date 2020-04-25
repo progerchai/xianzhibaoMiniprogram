@@ -8,6 +8,7 @@ import FqBottom from "../../components/bottom";
 import FqProductList from "../../components/product_list";
 import "./index.scss";
 import Skeleton from "../../components/Skeleton";
+import Login from "../../components/login";
 import service from "../../service";
 
 class Index extends Component {
@@ -15,6 +16,8 @@ class Index extends Component {
     navigationBarTitleText: "首页"
   };
   state = {
+    userInfo: null,
+    hasShowedLogin: false,
     loading: true,
     city: null,
     swiperList: [],
@@ -78,7 +81,26 @@ class Index extends Component {
       }
     ]
   };
-
+  componentWillMount() {
+    Taro.getStorage({
+      key: "userInfo",
+      success: res => {
+        this.setState({ userInfo: res.data });
+      }
+    });
+    Taro.getStorage({
+      key: "hasShowedLogin",
+      success: res => {
+        this.setState({ hasShowedLogin: res.data });
+      }
+    });
+  }
+  //初始化显示过获取用户信息触发函数
+  showedLoginFunction() {
+    console.log("触发了");
+    this.setState({ hasShowedLogin: true, userInfo: { name: 1 } });
+    Taro.setStorage({ key: "hasShowedLogin", data: true });
+  }
   componentWillReceiveProps(nextProps) {
     console.log(this.props, nextProps);
   }
@@ -127,9 +149,14 @@ class Index extends Component {
     this.setState({ swiperList: result.imglist });
   }
   render() {
-    let { swiperList } = this.state;
+    let { swiperList, userInfo, hasShowedLogin } = this.state;
     return (
-      <View className="container">
+      <View className={userInfo ? "container" : "container overflowContent"}>
+        {!userInfo && !hasShowedLogin ? (
+          <Login
+            showedLoginFunction={this.showedLoginFunction.bind(this)}
+          ></Login>
+        ) : null}
         <Skeleton
           loading={this.state.loading}
           searchbar

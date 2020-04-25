@@ -32,21 +32,43 @@ class App extends Component {
       "pages/cart/cart",
       "pages/activity/activity",
       "pages/activity/artical",
-      "pages/me/me",
+      "pages/me/me"
     ],
     window: {
       backgroundTextStyle: "light",
       navigationBarBackgroundColor: "#fff",
       navigationBarTitleText: "WeChat",
-      navigationBarTextStyle: "black",
+      navigationBarTextStyle: "black"
     },
     permission: {
       "scope.userLocation": {
-        desc: "你的位置信息将用于小程序位置接口的效果展示",
-      },
-    },
+        desc: "你的位置信息将用于小程序位置接口的效果展示"
+      }
+    }
   };
-
+  componentWillMount() {
+    Taro.getSetting()
+      .then(res => {
+        if (res.authSetting["scope.userInfo"]) {
+          return true;
+        } else {
+          throw new Error("没有授权");
+        }
+      })
+      .then(res => {
+        return Taro.getUserInfo();
+      })
+      .then(res => {
+        Taro.setStorage({
+          key: "userInfo",
+          data: res.userInfo
+        });
+        console.log(res.userInfo);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
   componentDidMount() {}
 
   componentDidShow() {}
