@@ -1,4 +1,47 @@
+@import "~taro-ui/dist/style/components/avatar.scss";
 .index {
   flex-direction: column;
   width: 100%;
+}
+.noUserInfo {
+  width: fit-content;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  .loginText {
+    font-size: 32px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    .infoCheckStatesText {
+      font-size: 26px;
+    }
+  }
+  .loginText1 {
+    font-size: 42px;
+    margin-left: 20px;
+    color: black;
+  }
+}
+.container {
+  .loginBtn {
+    position: relative;
+    // display: block;
+    width: 250px;
+    padding: 0;
+    box-sizing: content-box;
+    font-size: 42px;
+    text-align: left;
+    text-decoration: none;
+    line-height: normal;
+    border-radius: 0;
+    -webkit-tap-highlight-color: transparent;
+    overflow: hidden;
+    color: transparent;
+    background-color: transparent;
+  }
+  .loginBtn:after {
+    border: none;
+  }
 }
