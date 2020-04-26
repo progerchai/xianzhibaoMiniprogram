@@ -27,9 +27,20 @@ export default class FqCard extends Component {
     this.setState({ title, icon_left, message, icon_right });
   }
   render() {
-    const { title, icon_left, message, icon_right } = this.state;
+    const {
+      title,
+      icon_left,
+      message,
+      icon_right,
+      border_top = false,
+      border_bottom = true
+    } = this.props;
     return (
-      <View className="card_box">
+      <View
+        className={`card_box ${border_top ? "borderTop" : ""} ${
+          border_bottom ? "borderBottom" : ""
+        }`}
+      >
         <View className="left">
           <AtIcon prefixClass="icon" value={icon_left} size="20"></AtIcon>
           <Text className="card_box_text">{title}</Text>
