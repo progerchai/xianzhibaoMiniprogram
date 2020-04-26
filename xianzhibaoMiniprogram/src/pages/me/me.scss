@@ -25,6 +25,7 @@
   }
 }
 .container {
+  background-color: #feffff;
   .loginBtn {
     position: relative;
     // display: block;
@@ -43,5 +44,11 @@
   }
   .loginBtn:after {
     border: none;
+  }
+  .cardList {
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    position: relative;
   }
 }

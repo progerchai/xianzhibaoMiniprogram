@@ -3,7 +3,8 @@ import { View, Button, Text } from "@tarojs/components";
 import { AtAvatar } from "taro-ui";
 // import { connect } from '@tarojs/redux'
 import FqBottom from "../../components/bottom";
-
+import FqCard from "../../components/card";
+import FqsliceSpace from "../../components/slice_space";
 import "./me.scss";
 
 class Me extends Component {
@@ -72,7 +73,30 @@ class Me extends Component {
             </View>
           </Button>
         )}
-        <View>头像以外的内容</View>
+        <View>
+          {/* TODO: icon需要自己提供 */}
+          <View className="cardList">
+            <FqCard
+              title="123"
+              icon_left="laba"
+              message="right"
+              icon_right="laba"
+              border_top
+            ></FqCard>
+            <FqCard
+              title="123"
+              icon_left="laba"
+              message="right"
+              icon_right="laba"
+              border_bottom
+            ></FqCard>
+          </View>
+          <FqsliceSpace
+            bgcolor="#f6f7f8"
+            width="100%"
+            height="14px"
+          ></FqsliceSpace>
+        </View>
         <FqBottom current={4}></FqBottom>
       </View>
     );
