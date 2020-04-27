@@ -75,20 +75,21 @@ class Me extends Component {
         )}
         <View>
           {/* TODO: icon需要自己提供 */}
+
           <View className="cardList">
+            积分信息 我的订单
+            {/* TODO:个人信息中加入实名认证 */}
             <FqCard
-              title="123"
+              title="个人信息"
               icon_left="laba"
-              message="right"
-              icon_right="laba"
               border_top
+              url="123"
             ></FqCard>
             <FqCard
-              title="123"
+              title="消息中心"
               icon_left="laba"
-              message="right"
-              icon_right="laba"
               border_bottom
+              url="456"
             ></FqCard>
           </View>
           <FqsliceSpace
@@ -96,7 +97,55 @@ class Me extends Component {
             width="100%"
             height="14px"
           ></FqsliceSpace>
+          <View className="cardList">
+            <FqCard
+              title="我的收藏"
+              icon_left="laba"
+              border_bottom
+              url="000"
+            ></FqCard>
+            <FqCard
+              title="收货地址"
+              icon_left="laba"
+              border_bottom
+              url="000"
+            ></FqCard>
+            <FqCard
+              title="银行卡信息"
+              icon_left="laba"
+              border_bottom
+              url="555"
+            ></FqCard>
+            <FqCard title="其他" icon_left="laba" url="555"></FqCard>
+          </View>
+          <FqsliceSpace
+            bgcolor="#f6f7f8"
+            width="100%"
+            height="14px"
+          ></FqsliceSpace>
+          <View className="cardList">
+            <FqCard
+              title="我的优惠券"
+              icon_left="laba"
+              border_bottom
+              url="000"
+            ></FqCard>
+            <FqCard
+              title="我的出售"
+              icon_left="laba"
+              border_bottom
+              url="000"
+            ></FqCard>
+            <FqCard
+              title="意见反馈"
+              icon_left="laba"
+              border_bottom
+              url="555"
+            ></FqCard>
+            <FqCard title="关与我们" icon_left="laba" url="555"></FqCard>
+          </View>
         </View>
+        {/* TODO:底部增加auth@proger@gmail.com 身份信息*/}
         <FqBottom current={4}></FqBottom>
       </View>
     );

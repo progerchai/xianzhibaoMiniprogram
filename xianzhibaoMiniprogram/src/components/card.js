@@ -26,20 +26,26 @@ export default class FqCard extends Component {
     const { title, icon_left, message, icon_right } = this.props;
     this.setState({ title, icon_left, message, icon_right });
   }
+  //卡片页面跳转函数
+  handleClick(url) {
+    console.log(url);
+  }
   render() {
     const {
-      title,
-      icon_left,
-      message,
-      icon_right,
+      title = "title",
+      icon_left = "list",
+      message = "",
+      icon_right = "right",
       border_top = false,
-      border_bottom = true
+      border_bottom = true,
+      url
     } = this.props;
     return (
       <View
         className={`card_box ${border_top ? "borderTop" : ""} ${
           border_bottom ? "borderBottom" : ""
         }`}
+        onClick={this.handleClick.bind(this, url)}
       >
         <View className="left">
           <AtIcon prefixClass="icon" value={icon_left} size="20"></AtIcon>
