@@ -15,7 +15,8 @@ class Me extends Component {
     userInfo: null,
     infoCheckStates: "已认证",
     // TODO:订单数据的徽标数量
-    orderAmountByStatus: [1, 2, 0, 1]
+    orderAmountByStatus: [1, 2, 0, 1],
+    spliceState: { bgcolor: "#fff", width: "100%", height: "14px" } //cardList splice state
   };
   componentWillMount() {
     Taro.getStorage({
@@ -53,7 +54,12 @@ class Me extends Component {
     }
   };
   render() {
-    let { userInfo, infoCheckStates, orderAmountByStatus } = this.state;
+    let {
+      userInfo,
+      infoCheckStates,
+      orderAmountByStatus,
+      spliceState
+    } = this.state;
     return (
       <View className="container">
         {userInfo ? (
@@ -83,6 +89,7 @@ class Me extends Component {
           </Button>
         )}
         <View>
+          积分信息
           {/* TODO: icon需要自己提供 */}
           <View className="cardList">
             <FqCard
@@ -90,7 +97,7 @@ class Me extends Component {
               message="查看全部订单"
               icon_left="none"
               noClickFunction={true}
-              border_bottom={false}
+              border_bottom
               extraOnClick={this.handleClickOrder.bind(this, 0)}
               childrenExit={true}
             >
@@ -150,26 +157,25 @@ class Me extends Component {
               </View>
             </FqCard>
           </View>
+          <FqsliceSpace
+            bgcolor={spliceState.bgcolor}
+            width={spliceState.width}
+            height={spliceState.height}
+          ></FqsliceSpace>
           <View className="cardList">
-            积分信息
             {/* TODO:个人信息中加入实名认证 */}
             <FqCard
               title="个人信息"
               icon_left="laba"
-              border_top
+              border_bottom
               url="123"
             ></FqCard>
-            <FqCard
-              title="消息中心"
-              icon_left="laba"
-              border_bottom
-              url="456"
-            ></FqCard>
+            <FqCard title="消息中心" icon_left="laba" url="456"></FqCard>
           </View>
           <FqsliceSpace
-            bgcolor="#f6f7f8"
-            width="100%"
-            height="14px"
+            bgcolor={spliceState.bgcolor}
+            width={spliceState.width}
+            height={spliceState.height}
           ></FqsliceSpace>
           <View className="cardList">
             <FqCard
@@ -184,17 +190,12 @@ class Me extends Component {
               border_bottom
               url="000"
             ></FqCard>
-            <FqCard
-              title="我的优惠券"
-              icon_left="laba"
-              border_bottom
-              url="555"
-            ></FqCard>
+            <FqCard title="我的优惠券" icon_left="laba" url="555"></FqCard>
           </View>
           <FqsliceSpace
-            bgcolor="#f6f7f8"
-            width="100%"
-            height="14px"
+            bgcolor={spliceState.bgcolor}
+            width={spliceState.width}
+            height={spliceState.height}
           ></FqsliceSpace>
           <View className="cardList">
             <FqCard
@@ -209,12 +210,7 @@ class Me extends Component {
               border_bottom
               url="000"
             ></FqCard>
-            <FqCard
-              title="意见反馈"
-              icon_left="laba"
-              border_bottom
-              url="555"
-            ></FqCard>
+            <FqCard title="意见反馈" icon_left="laba" url="555"></FqCard>
             <FqCard title="关与我们" icon_left="laba" url="555"></FqCard>
           </View>
         </View>

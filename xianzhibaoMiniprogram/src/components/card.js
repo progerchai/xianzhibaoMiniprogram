@@ -38,7 +38,7 @@ export default class FqCard extends Component {
       message = "",
       icon_right = "right",
       border_top = false,
-      border_bottom = true,
+      border_bottom = false,
       extraOnClick = null,
       noClickFunction = false,
       childrenExit = false,
