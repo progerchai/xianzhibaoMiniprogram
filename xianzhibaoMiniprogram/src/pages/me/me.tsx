@@ -1,6 +1,6 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Button, Text } from "@tarojs/components";
-import { AtAvatar } from "taro-ui";
+import { AtAvatar, AtBadge } from "taro-ui";
 // import { connect } from '@tarojs/redux'
 import FqBottom from "../../components/bottom";
 import FqCard from "../../components/card";
@@ -13,7 +13,9 @@ class Me extends Component {
   };
   state = {
     userInfo: null,
-    infoCheckStates: "已认证"
+    infoCheckStates: "已认证",
+    // TODO:订单数据的徽标数量
+    orderAmountByStatus: [1, 2, 0, 1]
   };
   componentWillMount() {
     Taro.getStorage({
@@ -23,6 +25,13 @@ class Me extends Component {
         this.setState({ userInfo: res.data });
       }
     });
+  }
+  //查看全部订单
+  handleClickOrder(index) {
+    console.log("订单页面跳转-->", index);
+    // Taro.navigateTo({
+    //   url: '/pages/order/order?current=' + index
+    // });
   }
   // 用户授权操作后按钮回调
   onGotUserInfo = res => {
@@ -44,7 +53,7 @@ class Me extends Component {
     }
   };
   render() {
-    let { userInfo, infoCheckStates } = this.state;
+    let { userInfo, infoCheckStates, orderAmountByStatus } = this.state;
     return (
       <View className="container">
         {userInfo ? (
@@ -75,9 +84,74 @@ class Me extends Component {
         )}
         <View>
           {/* TODO: icon需要自己提供 */}
-
           <View className="cardList">
-            积分信息 我的订单
+            <FqCard
+              title="我的订单"
+              message="查看全部订单"
+              icon_left="none"
+              noClickFunction={true}
+              border_bottom={false}
+              extraOnClick={this.handleClickOrder.bind(this, 0)}
+              childrenExit={true}
+            >
+              <View className="at-row">
+                <View
+                  className="at-col at-col-3 order-item"
+                  onClick={this.handleClickOrder.bind(this, 1)}
+                >
+                  {orderAmountByStatus[0] ? (
+                    <AtBadge value={orderAmountByStatus[0]}>
+                      <View className="at-icon at-icon-credit-card order-item-icon"></View>
+                    </AtBadge>
+                  ) : (
+                    <View className="at-icon at-icon-credit-card order-item-icon"></View>
+                  )}
+                  <View className="order-item-text">待付款</View>
+                </View>
+                <View
+                  className="at-col at-col-3 order-item"
+                  onClick={this.handleClickOrder.bind(this, 2)}
+                >
+                  {orderAmountByStatus[1] ? (
+                    <AtBadge value={orderAmountByStatus[1]}>
+                      <View className="at-icon at-icon-shopping-bag order-item-icon"></View>
+                    </AtBadge>
+                  ) : (
+                    <View className="at-icon at-icon-shopping-bag order-item-icon"></View>
+                  )}
+                  <View className="order-item-text">待发货</View>
+                </View>
+                <View
+                  className="at-col at-col-3 order-item"
+                  onClick={this.handleClickOrder.bind(this, 3)}
+                >
+                  {orderAmountByStatus[2] ? (
+                    <AtBadge value={orderAmountByStatus[2]}>
+                      <View className="at-icon at-icon-shopping-cart order-item-icon"></View>
+                    </AtBadge>
+                  ) : (
+                    <View className="at-icon at-icon-shopping-cart order-item-icon"></View>
+                  )}
+                  <View className="order-item-text">待收货</View>
+                </View>
+                <View
+                  className="at-col at-col-3 order-item"
+                  onClick={this.handleClickOrder.bind(this, 4)}
+                >
+                  {orderAmountByStatus[3] ? (
+                    <AtBadge value={orderAmountByStatus[3]}>
+                      <View className="at-icon at-icon-message order-item-icon"></View>
+                    </AtBadge>
+                  ) : (
+                    <View className="at-icon at-icon-message order-item-icon"></View>
+                  )}
+                  <View className="order-item-text">待评价</View>
+                </View>
+              </View>
+            </FqCard>
+          </View>
+          <View className="cardList">
+            积分信息
             {/* TODO:个人信息中加入实名认证 */}
             <FqCard
               title="个人信息"

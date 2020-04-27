@@ -1,4 +1,81 @@
 @import "~taro-ui/dist/style/components/avatar.scss";
+@import "~taro-ui/dist/style/components/flex.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
+@import "~taro-ui/dist/style/components/badge.scss";
+
+.container {
+  background-color: #eeeeee;
+  font-size: 24rpx;
+  min-height: 100vh;
+}
+
+.personal-info {
+  background-color: #c8ad8d;
+  height: 300rpx;
+  text-align: center;
+
+  .avatar {
+    margin: 60rpx auto 20rpx;
+  }
+
+  .username {
+    font-size: 32rpx;
+  }
+}
+
+.membership {
+  text-align: center;
+
+  .count {
+    font-size: 32rpx;
+    margin: 8rpx 0;
+  }
+
+  .title {
+    font-size: 24rpx;
+    color: #666666;
+  }
+}
+
+.order-item {
+  text-align: center;
+}
+
+.order-item-icon {
+  font-size: 48rpx;
+  color: #666666;
+}
+
+.order-item-text {
+  margin-top: 10rpx;
+  color: #666666;
+}
+
+.buyVipFrame {
+  height: 300rpx;
+  line-height: 300rpx;
+  position: relative;
+}
+
+.buyVip {
+  top: 45%;
+  right: 0;
+  padding: 10rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  position: absolute;
+  background-color: #2a2723;
+  color: #e6caa9;
+  font-size: 24rpx;
+  border-radius: 5rpx;
+}
+
+.iconVip {
+  margin-right: 10rpx;
+}
+//上部是订单样式
+//-------分割线
+// 下部是列表样式
 .index {
   flex-direction: column;
   width: 100%;
