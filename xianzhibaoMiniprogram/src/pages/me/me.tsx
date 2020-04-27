@@ -99,24 +99,23 @@ class Me extends Component {
           ></FqsliceSpace>
           <View className="cardList">
             <FqCard
+              title="我的出售"
+              icon_left="laba"
+              border_bottom
+              url="000"
+            ></FqCard>
+            <FqCard
               title="我的收藏"
               icon_left="laba"
               border_bottom
               url="000"
             ></FqCard>
             <FqCard
-              title="收货地址"
-              icon_left="laba"
-              border_bottom
-              url="000"
-            ></FqCard>
-            <FqCard
-              title="银行卡信息"
+              title="我的优惠券"
               icon_left="laba"
               border_bottom
               url="555"
             ></FqCard>
-            <FqCard title="其他" icon_left="laba" url="555"></FqCard>
           </View>
           <FqsliceSpace
             bgcolor="#f6f7f8"
@@ -125,13 +124,13 @@ class Me extends Component {
           ></FqsliceSpace>
           <View className="cardList">
             <FqCard
-              title="我的优惠券"
+              title="银行卡信息"
               icon_left="laba"
               border_bottom
               url="000"
             ></FqCard>
             <FqCard
-              title="我的出售"
+              title="收货地址"
               icon_left="laba"
               border_bottom
               url="000"
