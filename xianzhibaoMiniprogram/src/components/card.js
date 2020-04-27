@@ -28,6 +28,7 @@ export default class FqCard extends Component {
   }
   //卡片页面跳转函数
   handleClick(url) {
+    console.log(123, this.props.children);
     console.log(url);
   }
   render() {
@@ -38,23 +39,50 @@ export default class FqCard extends Component {
       icon_right = "right",
       border_top = false,
       border_bottom = true,
+      extraOnClick = null,
+      noClickFunction = false,
+      childrenExit = false,
       url
     } = this.props;
     return (
       <View
-        className={`card_box ${border_top ? "borderTop" : ""} ${
+        className={`cardBody ${border_top ? "borderTop" : ""} ${
           border_bottom ? "borderBottom" : ""
         }`}
-        onClick={this.handleClick.bind(this, url)}
       >
-        <View className="left">
-          <AtIcon prefixClass="icon" value={icon_left} size="20"></AtIcon>
-          <Text className="card_box_text">{title}</Text>
+        <View
+          className="card_box"
+          onClick={
+            noClickFunction
+              ? () => {
+                  return false;
+                }
+              : this.handleClick.bind(this, url)
+          }
+        >
+          <View className="left">
+            {icon_left === "none" ? null : (
+              <AtIcon prefixClass="icon" value={icon_left} size="20"></AtIcon>
+            )}
+            <Text className="card_box_text">{title}</Text>
+          </View>
+          <View
+            className="right"
+            onClick={
+              extraOnClick
+                ? extraOnClick()
+                : () => {
+                    return false;
+                  }
+            }
+          >
+            <Text className="card_box_text">{message}</Text>
+            <AtIcon prefixClass="icon" value={icon_right} size="20"></AtIcon>
+          </View>
         </View>
-        <View className="right">
-          <Text className="card_box_text">{message}</Text>
-          <AtIcon prefixClass="icon" value={icon_right} size="20"></AtIcon>
-        </View>
+        {this.props.childrenExit && (
+          <View className="card-content">{this.props.children}</View>
+        )}
       </View>
     );
   }
