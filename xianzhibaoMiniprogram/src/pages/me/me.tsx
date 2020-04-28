@@ -256,6 +256,7 @@ class Me extends Component {
             <FqCard title="关与我们" icon_left="laba" url="555"></FqCard>
           </View>
         </View>
+        <View className="authMessage">auth@proger</View>
         {/* TODO:底部增加auth@proger@gmail.com 身份信息*/}
         <FqBottom current={4}></FqBottom>
       </View>
