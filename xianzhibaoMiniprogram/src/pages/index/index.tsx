@@ -81,7 +81,7 @@ class Index extends Component {
       }
     ]
   };
-  componentWillMount() {
+  componentDidShow() {
     Taro.getStorage({
       key: "userInfo",
       success: res => {
@@ -102,6 +102,13 @@ class Index extends Component {
     Taro.setStorage({ key: "hasShowedLogin", data: true });
   }
   componentWillReceiveProps(nextProps) {
+    console.log("componentWillReceiveProps");
+    Taro.getStorage({
+      key: "userInfo",
+      success: res => {
+        console.log(res.data);
+      }
+    });
     console.log(this.props, nextProps);
   }
   componentDidMount() {
@@ -148,15 +155,11 @@ class Index extends Component {
     const result = await service.index_page.get_index_message();
     this.setState({ swiperList: result.imglist });
   }
+
   render() {
     let { swiperList, userInfo, hasShowedLogin } = this.state;
     return (
       <View className={userInfo ? "container" : "container overflowContent"}>
-        {!userInfo && !hasShowedLogin ? (
-          <Login
-            showedLoginFunction={this.showedLoginFunction.bind(this)}
-          ></Login>
-        ) : null}
         <Skeleton
           loading={this.state.loading}
           searchbar
@@ -165,6 +168,11 @@ class Index extends Component {
           body
           action
         >
+          {!userInfo && !hasShowedLogin ? (
+            <Login
+              showedLoginFunction={this.showedLoginFunction.bind(this)}
+            ></Login>
+          ) : null}
           <FqSearchBar
             searchType={1}
             isPosition={true}
