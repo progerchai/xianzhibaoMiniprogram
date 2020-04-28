@@ -1,6 +1,6 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Button, Text } from "@tarojs/components";
-import { AtAvatar, AtBadge } from "taro-ui";
+import { AtAvatar, AtBadge, AtProgress } from "taro-ui";
 // import { connect } from '@tarojs/redux'
 import FqBottom from "../../components/bottom";
 import FqCard from "../../components/card";
@@ -16,7 +16,9 @@ class Me extends Component {
     infoCheckStates: "已认证",
     // TODO:订单数据的徽标数量
     orderAmountByStatus: [1, 2, 0, 1],
-    spliceState: { bgcolor: "#fff", width: "100%", height: "14px" } //cardList splice state
+    spliceState: { bgcolor: "#fff", width: "100%", height: "14px" }, //cardList splice state
+    topStyle: { fontColor: "white", bgColor: "#24231F" },
+    integral: 640
   };
   componentWillMount() {
     Taro.getStorage({
@@ -58,7 +60,9 @@ class Me extends Component {
       userInfo,
       infoCheckStates,
       orderAmountByStatus,
-      spliceState
+      spliceState,
+      topStyle,
+      integral
     } = this.state;
     return (
       <View className="container">
@@ -89,7 +93,36 @@ class Me extends Component {
           </Button>
         )}
         <View>
-          积分信息
+          <View className="cardList">
+            <FqCard
+              title="闲置宝"
+              message="积分信息"
+              icon_left="none"
+              icon_right="none"
+              noClickFunction={true}
+              border_bottom
+              childrenExit={true}
+              topStyle={topStyle}
+            >
+              <View className="progressBarBox">
+                <Text>{integral}</Text>
+                <View className="progressBar">
+                  {/* TODO: 信用分总计750分，按照比例进行显示 */}
+                  <AtProgress
+                    percent={(100 * integral) / 750}
+                    strokeWidth={8}
+                    isHidePercent
+                    color="#6190E8"
+                  />
+                </View>
+              </View>
+            </FqCard>
+          </View>
+          <FqsliceSpace
+            bgcolor={spliceState.bgcolor}
+            width={spliceState.width}
+            height={spliceState.height}
+          ></FqsliceSpace>
           {/* TODO: icon需要自己提供 */}
           <View className="cardList">
             <FqCard
@@ -98,6 +131,7 @@ class Me extends Component {
               icon_left="none"
               noClickFunction={true}
               border_bottom
+              border_top
               extraOnClick={this.handleClickOrder.bind(this, 0)}
               childrenExit={true}
             >
@@ -168,6 +202,7 @@ class Me extends Component {
               title="个人信息"
               icon_left="laba"
               border_bottom
+              border_top
               url="123"
             ></FqCard>
             <FqCard title="消息中心" icon_left="laba" url="456"></FqCard>
@@ -182,6 +217,7 @@ class Me extends Component {
               title="我的出售"
               icon_left="laba"
               border_bottom
+              border_top
               url="000"
             ></FqCard>
             <FqCard
@@ -202,6 +238,7 @@ class Me extends Component {
               title="银行卡信息"
               icon_left="laba"
               border_bottom
+              border_top
               url="000"
             ></FqCard>
             <FqCard
@@ -210,7 +247,12 @@ class Me extends Component {
               border_bottom
               url="000"
             ></FqCard>
-            <FqCard title="意见反馈" icon_left="laba" url="555"></FqCard>
+            <FqCard
+              title="意见反馈"
+              border_bottom
+              icon_left="laba"
+              url="555"
+            ></FqCard>
             <FqCard title="关与我们" icon_left="laba" url="555"></FqCard>
           </View>
         </View>

@@ -2,6 +2,7 @@
 @import "~taro-ui/dist/style/components/flex.scss";
 @import "~taro-ui/dist/style/components/icon.scss";
 @import "~taro-ui/dist/style/components/badge.scss";
+@import "~taro-ui/dist/style/components/progress.scss";
 
 .container {
   background-color: #eeeeee;
@@ -128,7 +129,19 @@
     padding-bottom: 10px;
     position: relative;
     border: 1px solid #cdcdcd;
-    border-radius: 8px;
+    border-radius: 10px;
     margin-bottom: 2px;
+    .progressBarBox {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text {
+        font-size: 40px;
+        padding-bottom: 10px;
+      }
+      .progressBar {
+        width: 90%;
+      }
+    }
   }
 }

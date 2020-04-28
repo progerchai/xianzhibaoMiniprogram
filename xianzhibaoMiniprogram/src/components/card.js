@@ -42,16 +42,14 @@ export default class FqCard extends Component {
       extraOnClick = null,
       noClickFunction = false,
       childrenExit = false,
+      topStyle = { fontColor: "black", bgColor: "white" },
       url
     } = this.props;
     return (
-      <View
-        className={`cardBody ${border_top ? "borderTop" : ""} ${
-          border_bottom ? "borderBottom" : ""
-        }`}
-      >
+      <View className={`cardBody ${border_top ? "borderTop" : ""}`}>
         <View
-          className="card_box"
+          className={`card_box ${border_bottom ? "borderBottom" : ""}`}
+          style={{ backgroundColor: topStyle.bgColor }}
           onClick={
             noClickFunction
               ? () => {
@@ -64,7 +62,14 @@ export default class FqCard extends Component {
             {icon_left === "none" ? null : (
               <AtIcon prefixClass="icon" value={icon_left} size="20"></AtIcon>
             )}
-            <Text className="card_box_text">{title}</Text>
+            <Text
+              className="card_box_text"
+              style={{
+                color: topStyle.fontColor
+              }}
+            >
+              {title}
+            </Text>
           </View>
           <View
             className="right"
@@ -76,8 +81,15 @@ export default class FqCard extends Component {
                   }
             }
           >
-            <Text className="card_box_text">{message}</Text>
-            <AtIcon prefixClass="icon" value={icon_right} size="20"></AtIcon>
+            <Text
+              className="card_box_text"
+              style={{ color: topStyle.fontColor }}
+            >
+              {message}
+            </Text>
+            {icon_right === "none" ? null : (
+              <AtIcon prefixClass="icon" value={icon_right} size="20"></AtIcon>
+            )}
           </View>
         </View>
         {this.props.childrenExit && (
