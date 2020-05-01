@@ -27,9 +27,17 @@ class Activity extends Component {
       {
         active_id: 2,
         active_weight: 0,
-        active_intr_text: "我爱你，也爱这身白衣！",
+        active_intr_text: "“抗疫！”我爱你，也爱这身白衣！",
         active_img_url:
           "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584208109413&di=9d4455cd2dfcff36834ca7d9d8add5a7&imgtype=0&src=http%3A%2F%2Fpic.anhuinews.com%2F003%2F010%2F876%2F00301087613_bd13fd4a.jpg",
+        active_url: "https://www.proger.cn/files/yish.jpeg"
+      },
+      {
+        active_id: 2,
+        active_weight: 0,
+        active_intr_text: "毕业季，冲吧，闲置君！",
+        active_img_url:
+          "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1884473551,2842150801&fm=26&gp=0.jpg",
         active_url: "https://www.proger.cn/files/yish.jpeg"
       }
     ]
@@ -49,7 +57,7 @@ class Activity extends Component {
     return (
       <View className="container">
         <FqScrollNotice
-          noticeText="我是轮播公告我是轮播公告我是轮播公告公告"
+          noticeText="抗击疫情，众志成城！！请减少到人群密集到场所活动！"
           bgColor="#fffbe6"
           fontColor="#6d511e"
         ></FqScrollNotice>
