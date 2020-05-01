@@ -126,7 +126,7 @@ class Index extends Component {
   // 获取用户的地理位置
   async getLocation() {
     let point = await Taro.getLocation();
-    let position = await this.reverseGeocoder(point);
+    let position: any = await this.reverseGeocoder(point);
     let city = position.result.address_component.city;
     console.log(position);
     this.setState({ city });
@@ -168,19 +168,23 @@ class Index extends Component {
           body
           action
         >
-          {!userInfo && !hasShowedLogin ? (
-            <Login
-              showedLoginFunction={this.showedLoginFunction.bind(this)}
-            ></Login>
-          ) : null}
-          <FqSearchBar
-            searchType={1}
-            isPosition={true}
-            position={this.state.city}
-          ></FqSearchBar>
-          <FqSwiperImg swiperList={swiperList}></FqSwiperImg>
-          <FqMenu></FqMenu>
-          <FqProductList product_list={this.state.product_list}></FqProductList>
+          <View>
+            {!userInfo && !hasShowedLogin ? (
+              <Login
+                showedLoginFunction={this.showedLoginFunction.bind(this)}
+              ></Login>
+            ) : null}
+            <FqSearchBar
+              searchType={1}
+              isPosition={true}
+              position={this.state.city}
+            ></FqSearchBar>
+            <FqSwiperImg swiperList={swiperList}></FqSwiperImg>
+            <FqMenu></FqMenu>
+            <FqProductList
+              product_list={this.state.product_list}
+            ></FqProductList>
+          </View>
         </Skeleton>
         <FqBottom current={0}></FqBottom>
       </View>
