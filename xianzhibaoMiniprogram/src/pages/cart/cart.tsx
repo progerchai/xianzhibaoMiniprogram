@@ -4,6 +4,7 @@ import { View, Button, Text } from "@tarojs/components";
 import FqBottom from "../../components/bottom";
 import FqBuyBar from "../../components/buy_bar";
 import NoData from "../../components/no_data";
+import FqCartList from "../../components/cart_list";
 // import { add, minus, asyncAdd } from '../../actions/counter'
 
 import "./cart.scss";
@@ -13,7 +14,7 @@ class Cart extends Component {
     navigationBarTitleText: "购物车"
   };
   state = {
-    products: []
+    products: [{ name: "商品1" }, { name: "商品2" }]
   };
   componentWillReceiveProps(nextProps) {
     console.log(this.props, nextProps);
@@ -29,12 +30,11 @@ class Cart extends Component {
     let { products } = this.state;
     return (
       <View className="container">
-        {products.length ? (
-          <View></View>
-        ) : (
+        {products.length === 0 ? (
           <NoData desc={"购物车为空哦"} icon={"wushuju"}></NoData>
-        )}
-        <FqBuyBar></FqBuyBar>
+        ) : null}
+        <FqCartList />
+        <FqBuyBar />
         <FqBottom current={3}></FqBottom>
       </View>
     );

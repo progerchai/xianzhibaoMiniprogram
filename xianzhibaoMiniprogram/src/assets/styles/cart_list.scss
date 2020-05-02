@@ -1,0 +1,33 @@
+.cartListContainer {
+  width: 100%;
+  height: fit-content;
+  padding-top: 20px;
+  .cartItem {
+    width: 100%;
+    min-height: 260px;
+    margin: 20px 0;
+    background-color: white;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    color: #242525;
+    .cartItemHeader {
+      height: 30px;
+      line-height: 30px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 10px 0;
+      text {
+        margin-left: 20px;
+      }
+      .nickName {
+        margin-left: 15px;
+        margin-right: -10px;
+      }
+    }
+    .cartItemBody {
+      padding: 0 10px;
+    }
+  }
+}
