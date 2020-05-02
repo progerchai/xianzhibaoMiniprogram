@@ -3,7 +3,7 @@
   position: fixed;
   height: 92rpx;
   bottom: 107.6rpx;
-  background-color: transparent;
+  background-color: white;
   z-index: 103;
   float: left;
   .buyBarContainer {
@@ -25,7 +25,6 @@
       }
     }
     .buyBarBox {
-      background-color: yellow;
       padding: 2px;
     }
     .payNumber {
