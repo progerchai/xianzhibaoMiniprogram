@@ -200,7 +200,7 @@ class Me extends Component {
             {/* TODO:个人信息中加入实名认证 */}
             <FqCard
               title="个人信息"
-              icon_left="laba"
+              icon_left="self"
               border_bottom
               border_top
               url="123"
@@ -215,18 +215,18 @@ class Me extends Component {
           <View className="cardList">
             <FqCard
               title="我的出售"
-              icon_left="laba"
+              icon_left="coin"
               border_bottom
               border_top
               url="000"
             ></FqCard>
             <FqCard
               title="我的收藏"
-              icon_left="laba"
+              icon_left="collection"
               border_bottom
               url="000"
             ></FqCard>
-            <FqCard title="我的优惠券" icon_left="laba" url="555"></FqCard>
+            <FqCard title="我的优惠券" icon_left="coppons" url="555"></FqCard>
           </View>
           <FqsliceSpace
             bgcolor={spliceState.bgcolor}
@@ -236,24 +236,24 @@ class Me extends Component {
           <View className="cardList">
             <FqCard
               title="银行卡信息"
-              icon_left="laba"
+              icon_left="bank_cards"
               border_bottom
               border_top
               url="000"
             ></FqCard>
             <FqCard
               title="收货地址"
-              icon_left="laba"
+              icon_left="save_address"
               border_bottom
               url="000"
             ></FqCard>
             <FqCard
               title="意见反馈"
               border_bottom
-              icon_left="laba"
+              icon_left="feedback"
               url="555"
             ></FqCard>
-            <FqCard title="关与我们" icon_left="laba" url="555"></FqCard>
+            <FqCard title="关与我们" icon_left="about_us" url="555"></FqCard>
           </View>
         </View>
         <View className="authMessage">auth@proger</View>

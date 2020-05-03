@@ -4,10 +4,22 @@
 	"description": "闲置宝微信小程序 助力高校区域新模态闲置品交易",
 	"appid": "wxe365698157629a55",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": false,
 		"postcss": false,
-		"minified": false
+		"minified": false,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"nodeModules": true
 	},
 	"compileType": "miniprogram",
 	"simulatorType": "wechat",
@@ -39,6 +51,13 @@
 					"id": -1,
 					"name": "pages/index/search_page",
 					"pathName": "pages/index/search_page",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/product/product",
+					"pathName": "pages/product/product",
 					"scene": null
 				}
 			]
