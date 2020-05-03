@@ -1,7 +1,7 @@
 import { Component } from "@tarojs/taro";
 import "../assets/styles/menu.scss";
 import { View, Text } from "@tarojs/components";
-import { AtIcon } from "taro-ui";
+import { AtIcon, AtInputNumber } from "taro-ui";
 import "../assets/styles/cart_list.scss";
 export default class FqCartList extends Component {
   constructor(props) {
@@ -10,53 +10,11 @@ export default class FqCartList extends Component {
 
   state = {
     //   userInfoPage为卖家信息页面
-    cartList: [
-      {
-        sellerInfo: { nickName: "哎呦喂。", userInfoPage: 12 },
-        productList: [
-          {
-            pid: 1,
-            pImg:
-              "https://a.vpimg2.com/upload/merchandise/pdcpos/1100005068/2020/0318/156/85c8923e-acaa-4a54-9120-9b59191bf0f4.jpg",
-            price: 139.0,
-            number: 1,
-            description:
-              "温碧泉八杯睡补水保湿水乳套装，啥衮服水乳液面霜男女化妆护肤品",
-            modelText: "八杯水套盒",
-            isChoosed: false
-          },
-          {
-            pid: 2,
-            pImg:
-              "https://img.alicdn.com/img/bao/uploaded/i4/i4/2959591039/O1CN01DEz3E01JXu1qhmdIL_!!0-item_pic.jpg_540x540Q50s50.jpg",
-            price: 399.5,
-            number: 1,
-            description: "D07-POLO保罗福瑞德马球运动系列",
-            modelText: "M80-100斤150-165CM",
-            isChoosed: false
-          }
-        ],
-        isAllChoosed: false
-      },
-      {
-        sellerInfo: { nickName: "厉害呀飞～", userInfoPage: 12 },
-        productList: [
-          {
-            pid: 1,
-            pImg:
-              "https://a.vpimg2.com/upload/merchandise/pdcpos/1100005068/2020/0318/156/85c8923e-acaa-4a54-9120-9b59191bf0f4.jpg",
-            price: 139.0,
-            number: 1,
-            description:
-              "温碧泉八杯睡补水保湿水乳套装，啥衮服水乳液面霜男女化妆护肤品",
-            modelText: "八杯水套盒",
-            isChoosed: false
-          }
-        ],
-        isAllChoosed: false
-      }
-    ]
+    cartList: []
   };
+  componentDidMount() {
+    this.setState({ cartList: this.props.products });
+  }
   handleItemAllSelect(index) {
     console.log("单个卖家商品全选或取消全选");
     let cartList = this.state.cartList;
@@ -67,8 +25,23 @@ export default class FqCartList extends Component {
     });
     this.setState({ cartList });
   }
+  handleItemSelect(productIndex, index) {
+    console.log("单个商品选择或取消", productIndex, index);
+    let cartList = this.state.cartList;
+    let chooseFlag = cartList[index].productList[productIndex].isChoosed;
+    cartList[index].productList[productIndex].isChoosed = !chooseFlag;
+    this.setState({ cartList });
+    // TODO:当同一个卖家所有商品都被选择后，外部当全选按钮也应该是选中状态
+  }
+  //购物车商品数量变化函数
+  handleNumberChange(productIndex, index, value) {
+    let cartList = this.state.cartList;
+    cartList[index].productList[productIndex].number = value;
+    this.setState({ cartList });
+  }
   render() {
     let { cartList } = this.state;
+
     return (
       <View className="cartListContainer">
         {cartList && cartList.length !== 0
@@ -87,14 +60,63 @@ export default class FqCartList extends Component {
                       value="shouye"
                       size="20"
                     ></AtIcon>
+                    {/* TODO:点击卖家姓名、箭头都跳转到卖家信息页中 */}
                     <Text className="nickName">{item.sellerInfo.nickName}</Text>
                     <AtIcon prefixClass="icon" value="right" size="18"></AtIcon>
                   </View>
-                  <View className="cartItemBody">我是商品内容</View>
+                  {item.productList.map((product, productIndex) => {
+                    return (
+                      <View className="cartItemBody">
+                        <View className="bodyLeft">
+                          <AtIcon
+                            value="check-circle"
+                            size="20"
+                            color={product.isChoosed ? "#6190e8" : "#c1c1c1"}
+                            onClick={this.handleItemSelect.bind(
+                              this,
+                              productIndex,
+                              index
+                            )}
+                          ></AtIcon>
+                          <Image
+                            className="product_image"
+                            src={product.pImg}
+                            mode="aspectFill"
+                          ></Image>
+                        </View>
+                        <View className="bodyRight">
+                          <Text className="description">
+                            {product.description}
+                          </Text>
+                          <Text className="modelText">
+                            {product.modelText !== "" && product.modelText
+                              ? product.modelText
+                              : ""}
+                          </Text>
+                          <View className="bottomContent">
+                            <Text className="price">{`¥ ${product.price}`}</Text>
+                            <View className="number">
+                              <AtInputNumber
+                                min={1}
+                                step={1}
+                                value={product.number}
+                                onChange={this.handleNumberChange.bind(
+                                  this,
+                                  productIndex,
+                                  index
+                                )}
+                              />
+                            </View>
+                          </View>
+                        </View>
+                      </View>
+                    );
+                  })}
                 </View>
               );
             })
           : null}
+        <View className="bottomSpace"></View>
       </View>
     );
   }

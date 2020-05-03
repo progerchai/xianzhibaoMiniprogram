@@ -3,7 +3,7 @@
   position: fixed;
   height: 92rpx;
   bottom: 107.6rpx;
-  background-color: white;
+  background-color: transparent;
   z-index: 103;
   float: left;
   .buyBarContainer {
@@ -13,6 +13,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    background-color: white;
     .allSelect {
       height: 100%;
       display: flex;

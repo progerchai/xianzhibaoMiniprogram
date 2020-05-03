@@ -9,8 +9,6 @@ export default class FqBuyBar extends Component {
   }
 
   state = {
-    // 伪数据
-    products: [{}, {}],
     // 被勾选中的商品数量
     chooseNumber: 1,
     // 全选
@@ -38,12 +36,13 @@ export default class FqBuyBar extends Component {
     // 获取机型
     const system = Taro.getSystemInfoSync();
     const isIphoneX = system.model.indexOf("iPhone X") >= 0;
-    let { product, chooseNumber, isAllSelect, priceText } = this.state;
+    let { chooseNumber, isAllSelect, priceText } = this.state;
+    let { products } = this.props;
 
     return (
       <View className="buyBar" style={isIphoneX ? buyBarStyle : {}}>
         {/* 当有购物车数据的时候，显示购物结算条 */}
-        {product.length !== 0 ? (
+        {products.length !== 0 ? (
           <View className="buyBarContainer">
             <View className="allSelect">
               <AtIcon
