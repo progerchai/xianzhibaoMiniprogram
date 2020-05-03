@@ -29,6 +29,7 @@ class App extends Component {
       "pages/index/search_page",
       "pages/classification/classification",
       "pages/publish/publish",
+      "pages/product/product",
       "pages/cart/cart",
       "pages/activity/activity",
       "pages/activity/artical",
