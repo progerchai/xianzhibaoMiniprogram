@@ -172,21 +172,19 @@ class Index extends Component {
             {!userInfo && !hasShowedLogin ? (
               <Login
                 showedLoginFunction={this.showedLoginFunction.bind(this)}
-              ></Login>
+              />
             ) : null}
             <FqSearchBar
               searchType={1}
               isPosition={true}
               position={this.state.city}
-            ></FqSearchBar>
-            <FqSwiperImg swiperList={swiperList}></FqSwiperImg>
-            <FqMenu></FqMenu>
-            <FqProductList
-              product_list={this.state.product_list}
-            ></FqProductList>
+            />
+            <FqSwiperImg swiperList={swiperList} />
+            <FqMenu />
+            <FqProductList product_list={this.state.product_list} />
           </View>
         </Skeleton>
-        <FqBottom current={0}></FqBottom>
+        <FqBottom current={0} />
       </View>
     );
   }

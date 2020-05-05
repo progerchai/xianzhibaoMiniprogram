@@ -32,7 +32,7 @@ export default class FqBlock extends Component {
                 <Image
                   className="menu_box_content_img"
                   src={item.active_img_url}
-                ></Image>
+                />
                 <Text className="menu_box_text"></Text>
                 <Text className="menu_box_text_co">
                   {item.active_intr_text}

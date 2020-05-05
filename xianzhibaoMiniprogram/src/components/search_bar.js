@@ -14,12 +14,12 @@ export default class FqSearchBar extends Taro.Component {
     super(...arguments);
     this.state = {
       value: "",
-      searchType: 1,
+      searchType: 1
     };
   }
   onChange(value) {
     this.setState({
-      value: value,
+      value: value
     });
   }
   onActionClick() {
@@ -46,7 +46,7 @@ export default class FqSearchBar extends Taro.Component {
               value="dingwei"
               size="20"
               color="#c1c1c1"
-            ></AtIcon>
+            />
             {position}
           </View>
         ) : null}

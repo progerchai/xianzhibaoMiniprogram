@@ -23,7 +23,7 @@ export default class NoData extends Component {
           className="noData_icon"
           name={icon || "wushuju"}
           size={fontsize}
-        ></IconFont>
+        />
         <Text className="noDataDesc">{desc || "暂无数据～"}</Text>
       </View>
     );

@@ -60,13 +60,13 @@ class Activity extends Component {
           noticeText="抗击疫情，众志成城！！请减少到人群密集到场所活动！"
           bgColor="#fffbe6"
           fontColor="#6d511e"
-        ></FqScrollNotice>
+        />
         {active_list.length ? (
-          <FqBlock props={active_list}></FqBlock>
+          <FqBlock props={active_list} />
         ) : (
-          <NoData desc={"暂无活动哦"} icon={"wushuju"}></NoData>
+          <NoData desc={"暂无活动哦"} icon={"wushuju"} />
         )}
-        <FqBottom current={1}></FqBottom>
+        <FqBottom current={1} />
       </View>
     );
   }

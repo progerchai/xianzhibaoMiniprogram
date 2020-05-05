@@ -24,7 +24,7 @@ export default class FqProductList extends Component {
                   className="product_image"
                   src={item.image_url1}
                   mode="aspectFill"
-                ></Image>
+                />
               </View>
               <View className="product_description">
                 <Text className="prodectText">

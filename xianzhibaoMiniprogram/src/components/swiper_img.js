@@ -29,7 +29,7 @@ export default class FqSwiperImg extends Component {
                   className="swiper_item"
                   mode="widthFix"
                   src={item.scroll_url}
-                ></Image>
+                />
               </SwiperItem>
             );
           })}

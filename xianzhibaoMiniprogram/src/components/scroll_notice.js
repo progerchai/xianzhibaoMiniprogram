@@ -57,12 +57,7 @@ export default class FqScrollNotice extends Taro.Component {
     return (
       <View className="scroll-wrap" style={{ backgroundColor: bgColor }}>
         <View className="left-icon">
-          <AtIcon
-            prefixClass="icon"
-            value="laba"
-            size="20"
-            color="#F00"
-          ></AtIcon>
+          <AtIcon prefixClass="icon" value="laba" size="20" color="#F00" />
         </View>
         <View
           className="scroll overflow font28 relative"

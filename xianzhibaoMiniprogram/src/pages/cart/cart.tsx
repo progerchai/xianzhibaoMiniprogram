@@ -76,11 +76,11 @@ class Cart extends Component {
     return (
       <View className="container">
         {products.length === 0 ? (
-          <NoData desc={"购物车为空哦"} icon={"wushuju"}></NoData>
+          <NoData desc={"购物车为空哦"} icon={"wushuju"} />
         ) : null}
         <FqCartList products={this.state.products} />
         <FqBuyBar products={this.state.products} />
-        <FqBottom current={3}></FqBottom>
+        <FqBottom current={3} />
       </View>
     );
   }

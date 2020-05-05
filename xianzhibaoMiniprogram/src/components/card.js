@@ -88,7 +88,7 @@ export default class FqCard extends Component {
               {message}
             </Text>
             {icon_right === "none" ? null : (
-              <AtIcon prefixClass="icon" value={icon_right} size="20"></AtIcon>
+              <AtIcon prefixClass="icon" value={icon_right} size="20" />
             )}
           </View>
         </View>

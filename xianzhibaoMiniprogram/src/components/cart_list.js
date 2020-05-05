@@ -54,15 +54,11 @@ export default class FqCartList extends Component {
                       size="20"
                       color={item.isAllChoosed ? "#6190e8" : "#c1c1c1"}
                       onClick={this.handleItemAllSelect.bind(this, index)}
-                    ></AtIcon>
-                    <AtIcon
-                      prefixClass="icon"
-                      value="shouye"
-                      size="20"
-                    ></AtIcon>
+                    />
+                    <AtIcon prefixClass="icon" value="shouye" size="20" />
                     {/* TODO:点击卖家姓名、箭头都跳转到卖家信息页中 */}
                     <Text className="nickName">{item.sellerInfo.nickName}</Text>
-                    <AtIcon prefixClass="icon" value="right" size="18"></AtIcon>
+                    <AtIcon prefixClass="icon" value="right" size="18" />
                   </View>
                   {item.productList.map((product, productIndex) => {
                     return (
@@ -77,12 +73,12 @@ export default class FqCartList extends Component {
                               productIndex,
                               index
                             )}
-                          ></AtIcon>
+                          />
                           <Image
                             className="product_image"
                             src={product.pImg}
                             mode="aspectFill"
-                          ></Image>
+                          />
                         </View>
                         <View className="bodyRight">
                           <Text className="description">

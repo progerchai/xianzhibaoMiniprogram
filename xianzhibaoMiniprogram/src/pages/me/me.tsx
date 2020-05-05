@@ -68,11 +68,7 @@ class Me extends Component {
       <View className="container">
         {userInfo ? (
           <View className="noUserInfo">
-            <AtAvatar
-              size="normal"
-              circle={true}
-              image={userInfo.avatarUrl}
-            ></AtAvatar>
+            <AtAvatar size="normal" circle={true} image={userInfo.avatarUrl} />
             <View className="loginText">
               <Text>{userInfo.nickName}</Text>
               <Text className="infoCheckStatesText">
@@ -87,7 +83,7 @@ class Me extends Component {
             onGetUserInfo={this.onGotUserInfo}
           >
             <View className="noUserInfo">
-              <AtAvatar size="normal" circle text="闲"></AtAvatar>
+              <AtAvatar size="normal" circle text="闲" />
               <Text className="loginText1">登录</Text>
             </View>
           </Button>
@@ -122,7 +118,7 @@ class Me extends Component {
             bgcolor={spliceState.bgcolor}
             width={spliceState.width}
             height={spliceState.height}
-          ></FqsliceSpace>
+          />
           {/* TODO: icon需要自己提供 */}
           <View className="cardList">
             <FqCard
@@ -195,7 +191,7 @@ class Me extends Component {
             bgcolor={spliceState.bgcolor}
             width={spliceState.width}
             height={spliceState.height}
-          ></FqsliceSpace>
+          />
           <View className="cardList">
             {/* TODO:个人信息中加入实名认证 */}
             <FqCard
@@ -204,14 +200,14 @@ class Me extends Component {
               border_bottom
               border_top
               url="123"
-            ></FqCard>
-            <FqCard title="消息中心" icon_left="laba" url="456"></FqCard>
+            />
+            <FqCard title="消息中心" icon_left="laba" url="456" />
           </View>
           <FqsliceSpace
             bgcolor={spliceState.bgcolor}
             width={spliceState.width}
             height={spliceState.height}
-          ></FqsliceSpace>
+          />
           <View className="cardList">
             <FqCard
               title="我的出售"
@@ -219,20 +215,20 @@ class Me extends Component {
               border_bottom
               border_top
               url="000"
-            ></FqCard>
+            />
             <FqCard
               title="我的收藏"
               icon_left="collection"
               border_bottom
               url="000"
-            ></FqCard>
-            <FqCard title="我的优惠券" icon_left="coppons" url="555"></FqCard>
+            />
+            <FqCard title="我的优惠券" icon_left="coppons" url="555" />
           </View>
           <FqsliceSpace
             bgcolor={spliceState.bgcolor}
             width={spliceState.width}
             height={spliceState.height}
-          ></FqsliceSpace>
+          />
           <View className="cardList">
             <FqCard
               title="银行卡信息"
@@ -240,25 +236,25 @@ class Me extends Component {
               border_bottom
               border_top
               url="000"
-            ></FqCard>
+            />
             <FqCard
               title="收货地址"
               icon_left="save_address"
               border_bottom
               url="000"
-            ></FqCard>
+            />
             <FqCard
               title="意见反馈"
               border_bottom
               icon_left="feedback"
               url="555"
-            ></FqCard>
-            <FqCard title="关与我们" icon_left="about_us" url="555"></FqCard>
+            />
+            <FqCard title="关与我们" icon_left="about_us" url="555" />
           </View>
         </View>
         <View className="authMessage">auth@proger</View>
         {/* TODO:底部增加auth@proger@gmail.com 身份信息*/}
-        <FqBottom current={4}></FqBottom>
+        <FqBottom current={4} />
       </View>
     );
   }

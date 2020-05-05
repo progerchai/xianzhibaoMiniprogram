@@ -24,7 +24,7 @@ class SearchPage extends Component {
   render() {
     return (
       <View className="container">
-        <FqSearchBar searchType={2}></FqSearchBar>
+        <FqSearchBar searchType={2} />
       </View>
     );
   }

@@ -37,7 +37,7 @@ export default class FqMenu extends Component {
                 className="menu_box_item"
                 onClick={this.handleSelect.bind(this, item.id)}
               >
-                <IconFont name={item.icon} size={fontsize}></IconFont>
+                <IconFont name={item.icon} size={fontsize} />
                 <Text>{item.title}</Text>
               </View>
             );

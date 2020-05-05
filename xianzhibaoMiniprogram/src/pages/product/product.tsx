@@ -144,9 +144,7 @@ class Cart extends Component {
           onClick={this.handleShowFloatLayout.bind(this)}
         >
           <Text className="detailLeft">商品详情</Text>
-          <Text className="detailRight">
-            {product.comments.length ? "" : "点击查看"}
-          </Text>
+          <Text className="detailRight">点击查看</Text>
         </View>
         <View className="commentContent">
           <Text className="commentLeft">评价</Text>
