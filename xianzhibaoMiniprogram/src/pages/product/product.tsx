@@ -9,6 +9,7 @@ import {
 } from "@tarojs/components";
 import { AtIcon, AtFloatLayout } from "taro-ui";
 import NoData from "../../components/no_data";
+import FqBuyBar from "../../components/buy_bar";
 import "./product.scss";
 
 class Cart extends Component {
@@ -194,6 +195,7 @@ class Cart extends Component {
             ) : null;
           })}
         </AtFloatLayout>
+        <FqBuyBar type="product" isCollected />
       </View>
     );
   }

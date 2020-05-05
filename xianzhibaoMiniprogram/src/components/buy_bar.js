@@ -37,34 +37,58 @@ export default class FqBuyBar extends Component {
     const system = Taro.getSystemInfoSync();
     const isIphoneX = system.model.indexOf("iPhone X") >= 0;
     let { chooseNumber, isAllSelect, priceText } = this.state;
-    let { products } = this.props;
+    let { products = [], type = "cart", isCollected = false } = this.props;
 
     return (
-      <View className="buyBar" style={isIphoneX ? buyBarStyle : {}}>
-        {/* 当有购物车数据的时候，显示购物结算条 */}
-        {products.length !== 0 ? (
-          <View className="buyBarContainer">
-            <View className="allSelect">
-              <AtIcon
-                value="check-circle"
-                size="20"
-                color={isAllSelect ? "#6190e8" : "#c1c1c1"}
-                onClick={this.handleAllSelect.bind(this)}
-              ></AtIcon>
-              <Text className="selectText">全选</Text>
-            </View>
-            <View className="payNumber">
-              <View className="payNumberText">合计：</View>
-              <View className="allPrice">
-                <Text className="priceText">{priceText}</Text>
-                <Text className="transportFee">不含运费</Text>
+      <View>
+        {type === "cart" ? (
+          <View className="buyBar" style={isIphoneX ? buyBarStyle : {}}>
+            {/* 当有购物车数据的时候，显示购物结算条 */}
+            {products.length !== 0 ? (
+              <View className="buyBarContainer">
+                <View className="allSelect">
+                  <AtIcon
+                    value="check-circle"
+                    size="20"
+                    color={isAllSelect ? "#6190e8" : "#c1c1c1"}
+                    onClick={this.handleAllSelect.bind(this)}
+                  />
+                  <Text className="selectText">全选</Text>
+                </View>
+                <View className="payNumber">
+                  <View className="payNumberText">合计：</View>
+                  <View className="allPrice">
+                    <Text className="priceText">{priceText}</Text>
+                    <Text className="transportFee">不含运费</Text>
+                  </View>
+                </View>
+                <View className="pay">
+                  <Text>{`结算${
+                    chooseNumber ? "( " + chooseNumber + " )" : ""
+                  }`}</Text>
+                </View>
               </View>
+            ) : null}
+          </View>
+        ) : null}
+        {type === "product" ? (
+          <View className="productBuyBar">
+            <View className="box">
+              <AtIcon prefixClass="icon" value="shouye" size="20" />
+              <Text>首页</Text>
             </View>
-            <View className="pay">
-              <Text>{`结算${
-                chooseNumber ? "( " + chooseNumber + " )" : ""
-              }`}</Text>
+            <View
+              className="box"
+              style={{ color: isCollected ? "#6190e8" : "#000" }}
+            >
+              <AtIcon prefixClass="icon" value="collection" size="20" />
+              <Text>{isCollected ? "已收藏" : "收藏"}</Text>
             </View>
+            <View className="box">
+              <AtIcon prefixClass="icon" value="gouwuche" size="20" />
+              <Text>购物车</Text>
+            </View>
+            <View className="buy">立即购买</View>
           </View>
         ) : null}
       </View>
