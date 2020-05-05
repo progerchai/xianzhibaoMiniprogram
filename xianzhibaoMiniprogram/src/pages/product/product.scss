@@ -136,6 +136,38 @@
       line-height: 80px;
       right: 20px;
     }
+    .commentBox {
+      width: 100%;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: white;
+      padding: 5px 10px;
+      .commentList {
+        width: 100vw;
+        .header {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          font-size: 26px;
+          .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+          }
+        }
+        .text {
+          width: calc(100% - 40px);
+          font-size: 30px;
+          margin-left: 10px;
+          text-align: justify;
+        }
+      }
+    }
   }
   //floatLayout
   .detailRow {

@@ -8,7 +8,7 @@ import {
   Image
 } from "@tarojs/components";
 import { AtIcon, AtFloatLayout } from "taro-ui";
-
+import NoData from "../../components/no_data";
 import "./product.scss";
 
 class Cart extends Component {
@@ -32,10 +32,24 @@ class Cart extends Component {
         "https://img.alicdn.com/img/bao/uploaded/i4/i4/2959591039/O1CN01DEz3E01JXu1qhmdIL_!!0-item_pic.jpg_540x540Q50s50.jpg"
       ],
       price: 139.0,
-      description:
-        "温碧泉八杯睡补水保湿水乳套装，啥衮服水乳液面霜男女化妆护肤品",
+      description: "温碧泉八杯睡补水保湿水乳套装，水乳液面霜男女化妆护肤品",
       modelText: "八杯水套盒",
-      comments: [],
+      comments: [
+        {
+          avatarUrl:
+            "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJ5gUpejVfCsXgoyt8eVPHHib964DTINsqR8C2G98yT5W7kM6icU154UgWYpDicTKlLwFiblqicAfFqOOQ/132",
+          nickName: "proger",
+          time: "2020-04-25 19:22:46",
+          text: "这个护肤品会过敏吗？"
+        },
+        {
+          avatarUrl:
+            "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJ5gUpejVfCsXgoyt8eVPHHib964DTINsqR8C2G98yT5W7kM6icU154UgWYpDicTKlLwFiblqicAfFqOOQ/132",
+          nickName: "proger",
+          time: "2020-04-25 19:22:46",
+          text: "楼主价格还可以再刀一下吗？"
+        }
+      ],
       detail: {
         name: { title: "宝贝名称", value: "我是宝贝名称" },
         size: { title: "宝贝尺寸", value: "我是尺寸" },
@@ -138,6 +152,27 @@ class Cart extends Component {
           <Text className="commentRight">
             {product.comments.length ? "" : "暂无评价"}
           </Text>
+          <View className="commentBox">
+            {product.comments.length ? (
+              product.comments.map(comment => {
+                return (
+                  <View className="commentList">
+                    <View className="header">
+                      <Image className="avatar" src={comment.avatarUrl} />
+                      <Text>
+                        {`用户 ${comment.nickName} 评论于：${comment.time}`}
+                      </Text>
+                    </View>
+                    <View className="text">
+                      <Text>{comment.text}</Text>
+                    </View>
+                  </View>
+                );
+              })
+            ) : (
+              <NoData desc={"评论区为空哦"} icon={"wushuju"}></NoData>
+            )}
+          </View>
         </View>
 
         <AtFloatLayout
