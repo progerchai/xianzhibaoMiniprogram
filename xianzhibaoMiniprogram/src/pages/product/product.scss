@@ -1,3 +1,4 @@
+@import "~taro-ui/dist/style/components/float-layout.scss";
 .container {
   background-color: #eef2f3;
   min-height: 100vh;
@@ -96,6 +97,26 @@
       }
     }
   }
+  .detailContent {
+    width: 100%;
+    margin-top: 20px;
+    background-color: white;
+    display: flex;
+    position: relative;
+    min-height: 80px;
+    .detailLeft {
+      position: absolute;
+      height: 80px;
+      line-height: 80px;
+      left: 20px;
+    }
+    .detailRight {
+      position: absolute;
+      height: 80px;
+      line-height: 80px;
+      right: 20px;
+    }
+  }
   .commentContent {
     width: 100%;
     margin-top: 20px;
@@ -114,6 +135,30 @@
       height: 80px;
       line-height: 80px;
       right: 20px;
+    }
+  }
+  //floatLayout
+  .detailRow {
+    width: 100%;
+    min-height: 70px;
+    margin-top: 20px;
+    border-bottom: 1px solid #c1c1c1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .detailRowLeft {
+      display: flex;
+      width: 50%;
+      justify-content: flex-start;
+      font-size: 30px;
+      margin-left: 30px;
+    }
+    .detailRowRight {
+      display: flex;
+      width: 50%;
+      font-size: 30px;
+      margin-right: 30px;
+      overflow: hidden;
     }
   }
 }

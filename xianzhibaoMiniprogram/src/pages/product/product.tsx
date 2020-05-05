@@ -7,7 +7,7 @@ import {
   SwiperItem,
   Image
 } from "@tarojs/components";
-import { AtIcon } from "taro-ui";
+import { AtIcon, AtFloatLayout } from "taro-ui";
 
 import "./product.scss";
 
@@ -16,6 +16,7 @@ class Cart extends Component {
     navigationBarTitleText: "商品详情"
   };
   state = {
+    isShowFloatLayout: false,
     product: {
       name: "水乳套装",
       sellerInfo: {
@@ -34,15 +35,37 @@ class Cart extends Component {
       description:
         "温碧泉八杯睡补水保湿水乳套装，啥衮服水乳液面霜男女化妆护肤品",
       modelText: "八杯水套盒",
-      comments: []
+      comments: [],
+      detail: {
+        name: { title: "宝贝名称", value: "我是宝贝名称" },
+        size: { title: "宝贝尺寸", value: "我是尺寸" },
+        depreciation: { title: "新旧程度", value: "99新" },
+        model: { title: "宝贝型号", value: "型号" },
+        pick_palce: { title: "可区间地点", value: "E区" },
+        brand: { title: "宝贝品牌", value: "品牌" },
+        save_time: { title: "卖家持有时间", value: "<=一个月" },
+        weight: { title: "重量", value: "<1kg" },
+        description: {
+          title: "卖家描述",
+          value: "我是卖家的一些描述"
+        }
+      }
     }
   };
   componentWillReceiveProps(nextProps) {
     console.log(this.props, nextProps);
   }
+  // 打开floatLayout
+  handleShowFloatLayout() {
+    this.setState({ isShowFloatLayout: true });
+  }
+  // 关闭floatLayout
+  handleClose() {
+    console.log("关闭浮动弹窗");
+  }
 
   render() {
-    let { product } = this.state;
+    let { product, isShowFloatLayout } = this.state;
     return (
       <View className="container">
         <Swiper
@@ -101,12 +124,41 @@ class Cart extends Component {
             <AtIcon prefixClass="icon" value="right" size="20" color="#000" />
           </View>
         </View>
+        <View
+          className="detailContent"
+          onClick={this.handleShowFloatLayout.bind(this)}
+        >
+          <Text className="detailLeft">商品详情</Text>
+          <Text className="detailRight">
+            {product.comments.length ? "" : "点击查看"}
+          </Text>
+        </View>
         <View className="commentContent">
           <Text className="commentLeft">评价</Text>
           <Text className="commentRight">
             {product.comments.length ? "" : "暂无评价"}
           </Text>
         </View>
+
+        <AtFloatLayout
+          isOpened={isShowFloatLayout}
+          title="商品详情"
+          scrollY
+          onClose={this.handleClose.bind(this)}
+        >
+          {Object.keys(product.detail).map(key => {
+            return product.detail[key] ? (
+              <View className="detailRow">
+                <View className="detailRowLeft">
+                  {product.detail[key].title}:
+                </View>
+                <View className="detailRowRight">
+                  <Text>{product.detail[key].value}</Text>
+                </View>
+              </View>
+            ) : null;
+          })}
+        </AtFloatLayout>
       </View>
     );
   }
