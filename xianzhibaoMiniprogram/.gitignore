@@ -5,3 +5,4 @@ deploy_versions/
 node_modules/
 src/components/iconfont
 .DS_Store
+.idea/
