@@ -22,6 +22,7 @@ class Cart extends Component {
       name: "水乳套装",
       sellerInfo: {
         nickName: "哎呦喂。",
+        openid: "asdfj9sjdfasdf9982329939",
         avatarUrl:
           "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJ5gUpejVfCsXgoyt8eVPHHib964DTINsqR8C2G98yT5W7kM6icU154UgWYpDicTKlLwFiblqicAfFqOOQ/132",
         userInfoPage: 12,
@@ -77,6 +78,14 @@ class Cart extends Component {
   // 关闭floatLayout
   handleClose() {
     console.log("关闭浮动弹窗");
+  }
+  // 跳转到评分用户页
+  handleMark(sellerInfo) {
+    let sellerInfoString = JSON.stringify(sellerInfo);
+    Taro.redirectTo({
+      url:
+        "/pages/product/mark_people?sellerInfo=" + encodeURI(sellerInfoString)
+    });
   }
 
   render() {
@@ -134,7 +143,10 @@ class Cart extends Component {
             卖家信用分:
             <Text className="integral">{product.sellerInfo.integral}</Text>
           </Text>
-          <View className="toDetail">
+          <View
+            className="toDetail"
+            onClick={this.handleMark.bind(this, product.sellerInfo)}
+          >
             <Text>查看详情</Text>
             <AtIcon prefixClass="icon" value="right" size="20" color="#000" />
           </View>
