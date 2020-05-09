@@ -28,13 +28,24 @@ export default class FqMenu extends Component {
   render() {
     let { fontsize, iconList } = this.state;
     return (
-      <View className="menu_box">
-        <View className="menu_wrap">
+      <View
+        className="menu_box"
+        style={
+          "width: 100%;height: 300rpx;padding: 5rpx 0;display:flex;flex-drection:row;"
+        }
+      >
+        <View
+          className="menu_wrap"
+          style={"width: 100%;height: 100%;display: flex;flex-flow: row wrap;"}
+        >
           {iconList.map(item => {
             return (
               <View
                 key={item}
                 className="menu_box_item"
+                style={
+                  "width: 22%;padding: 10rpx;display: flex;flex-direction: column;justify-content: center;align-items: center;font-size: 22rpx;"
+                }
                 onClick={this.handleSelect.bind(this, item.id)}
               >
                 <IconFont name={item.icon} size={fontsize} />
