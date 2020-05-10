@@ -13,7 +13,9 @@
     font-weight: 500;
   }
   .card {
-    width: 95%;
+    width: 90%;
+    border-radius: 10px;
+    border: 1px solid #cdcdcd;
     .progressBarBox {
       display: flex;
       flex-direction: column;
