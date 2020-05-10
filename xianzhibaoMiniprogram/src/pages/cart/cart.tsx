@@ -14,6 +14,7 @@ class Cart extends Component {
     navigationBarTitleText: "购物车"
   };
   state = {
+    pageAllChoose: false,
     products: [
       {
         sellerInfo: { nickName: "哎呦喂。", userInfoPage: 12 },
@@ -74,7 +75,17 @@ class Cart extends Component {
   }
 
   //购物车整页全选-与取消
-  isAllSelectFunction() {}
+  isAllSelectFunction() {
+    let pageAllChoose = this.state.pageAllChoose;
+    let products = this.state.products;
+    products.forEach(product => {
+      product.productList.forEach(element => {
+        element.isChoosed = !pageAllChoose;
+      });
+      product.isAllChoosed = !pageAllChoose;
+    });
+    this.setState({ products, pageAllChoose: !pageAllChoose });
+  }
   render() {
     let { products, priceText } = this.state;
     return (

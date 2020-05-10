@@ -16,6 +16,9 @@ export default class FqCartList extends Component {
   componentDidMount() {
     this.setState({ cartList: this.props.products });
   }
+  componentWillReceiveProps() {
+    this.compouteTotalPrice();
+  }
   //遍历购物车数据，检查到选中状态到商品就去计算总价
   compouteTotalPrice() {
     let cartList = this.state.cartList;
@@ -39,7 +42,6 @@ export default class FqCartList extends Component {
     this.props.compouteTotalPrice(totalPrice);
   }
   handleItemAllSelect(index) {
-    console.log("单个卖家商品全选或取消全选");
     let cartList = this.state.cartList;
     let chooseFlag = cartList[index].isAllChoosed;
     cartList[index].isAllChoosed = !chooseFlag;
@@ -50,7 +52,6 @@ export default class FqCartList extends Component {
     this.compouteTotalPrice();
   }
   handleItemSelect(productIndex, index) {
-    console.log("单个商品选择或取消", productIndex, index);
     let cartList = this.state.cartList;
     let chooseFlag = cartList[index].productList[productIndex].isChoosed;
     cartList[index].productList[productIndex].isChoosed = !chooseFlag;

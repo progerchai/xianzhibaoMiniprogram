@@ -26,10 +26,6 @@ export default class FqBuyBar extends Component {
     this.props.isAllSelectFunction();
   }
 
-  componentDidMount() {}
-
-  componentWillUnmount() {}
-
   render() {
     const buyBarStyle = { padding: "0 0 40rpx 10rpx" };
     // 获取机型
