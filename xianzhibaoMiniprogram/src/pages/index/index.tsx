@@ -16,70 +16,13 @@ class Index extends Component {
     navigationBarTitleText: "首页"
   };
   state = {
+    openid: null,
     userInfo: null,
     hasShowedLogin: false,
     loading: true,
     city: null,
     swiperList: [],
-    product_list: [
-      {
-        name: "榨汁机 88新",
-        description:
-          "描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述",
-        classify: "生活",
-        model: "型号",
-        files: [],
-        depreciation: "66新",
-        save_time: "<=一周",
-        weight: "<1kg",
-        brand: "",
-        price: 180,
-        size: "",
-        pick_place: "",
-        image_url1:
-          "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1281982941,672088714&fm=26&gp=0.jpg",
-        image_url2: "",
-        image_url3: ""
-      },
-      {
-        name: "哑铃 99新",
-        description:
-          "描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述",
-        classify: "生活",
-        model: "型号",
-        files: [],
-        depreciation: "88新",
-        save_time: "<=一周",
-        weight: "<1kg",
-        brand: "",
-        price: 40.0,
-        size: "",
-        pick_place: "",
-        image_url1:
-          "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2349681196,1745120500&fm=26&gp=0.jpg",
-        image_url2: "",
-        image_url3: ""
-      },
-      {
-        name: "商品3",
-        description:
-          "描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述",
-        classify: "生活",
-        model: "型号",
-        files: [],
-        depreciation: "99新",
-        save_time: "<=一周",
-        weight: "<1kg",
-        brand: "",
-        price: 0.0,
-        size: "",
-        pick_place: "",
-        image_url1:
-          "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2349681196,1745120500&fm=26&gp=0.jpg",
-        image_url2: "",
-        image_url3: ""
-      }
-    ]
+    product_list: []
   };
   componentDidShow() {
     Taro.getStorage({

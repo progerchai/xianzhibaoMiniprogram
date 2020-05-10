@@ -4,6 +4,7 @@ import { Provider } from "@tarojs/redux";
 import Index from "./pages/index";
 import server from "./service";
 import configStore from "./store";
+import { createStore } from "redux";
 
 import "./app.scss";
 import "./assets/fonts/iconfont/iconfont.scss";
@@ -87,6 +88,7 @@ class App extends Component {
   async get_openid(code) {
     let openidResult = await server.auth.getOpenid(code);
     if (openidResult) {
+      console.log(openidResult.openid);
       Taro.setStorage({
         key: "openid",
         data: openidResult.openid

@@ -38,8 +38,21 @@ export const get_product_detail = async pid => {
     return _.get(res, "data");
   }
 };
+
+//获取分类页商品详情
+export const get_classify_products = async classifyId => {
+  const res = await request({
+    path: "index/get_classify_products",
+    method: "GET",
+    data: { classifyId: classifyId + 1 }
+  });
+  if (_.get(res, "statusCode") === 200) {
+    return _.get(res, "data");
+  }
+};
 export default {
   get_index_message,
   get_index_products,
-  get_product_detail
+  get_product_detail,
+  get_classify_products
 };

@@ -21,7 +21,7 @@ class Cart extends Component {
   state = {
     isShowFloatLayout: false,
     product: {
-      name: "水乳套装",
+      name: "",
       sellerInfo: {
         nickName: "哎呦喂。",
         openid: "asdfj9sjdfasdf9982329939",
@@ -31,12 +31,9 @@ class Cart extends Component {
         integral: 650
       },
       pid: 1,
-      pImgList: [
-        "https://a.vpimg2.com/upload/merchandise/pdcpos/1100005068/2020/0318/156/85c8923e-acaa-4a54-9120-9b59191bf0f4.jpg",
-        "https://img.alicdn.com/img/bao/uploaded/i4/i4/2959591039/O1CN01DEz3E01JXu1qhmdIL_!!0-item_pic.jpg_540x540Q50s50.jpg"
-      ],
+      pImgList: [],
       price: 139.0,
-      description: "温碧泉八杯睡补水保湿水乳套装，水乳液面霜男女化妆护肤品",
+      description: "",
       modelText: "八杯水套盒",
       comments: [
         {

@@ -12,7 +12,7 @@ export default class FqProductList extends Component {
     Taro.redirectTo({ url: "/pages/product/product?pid=" + pid });
   }
   render() {
-    let { product_list } = this.props;
+    let { product_list = [] } = this.props;
     return (
       <View className="productflow">
         {product_list.map(item => {
