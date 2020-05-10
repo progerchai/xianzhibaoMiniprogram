@@ -12,6 +12,7 @@ import NoData from "../../components/no_data";
 import FqBuyBar from "../../components/buy_bar";
 import "./product.scss";
 import share from "./share";
+import service from "../../service";
 
 class Cart extends Component {
   config = {
@@ -43,7 +44,7 @@ class Cart extends Component {
             "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJ5gUpejVfCsXgoyt8eVPHHib964DTINsqR8C2G98yT5W7kM6icU154UgWYpDicTKlLwFiblqicAfFqOOQ/132",
           nickName: "proger",
           time: "2020-04-25 19:22:46",
-          text: "这个护肤品会过敏吗？"
+          text: "hello .. world"
         },
         {
           avatarUrl:
@@ -69,6 +70,43 @@ class Cart extends Component {
       }
     }
   };
+  // 初始化
+  componentDidMount() {
+    const pid = this.$router.params.pid;
+    this.getProductDetail(pid);
+  }
+  // 获取商品详细数据
+  async getProductDetail(pid) {
+    const result = await service.index_page.get_product_detail(pid);
+    if (result) {
+      let { product } = this.state;
+
+      let detail = result.detail;
+      product.name = detail.name;
+      product.pid = detail.pid;
+      product.price = detail.price;
+      let pImgList = [] as any;
+      for (let i = 0; i < 3; i++) {
+        if (detail[`image_url${i + 1}`])
+          pImgList.push(detail[`image_url${i + 1}`]);
+      }
+      product.pImgList = pImgList;
+      product.description = detail.description;
+      product.modelText = detail.model;
+      product.detail.name.value = detail.name;
+      product.detail.size.value = detail.size;
+      product.detail.depreciation.value = detail.depreciation;
+      product.detail.model.value = detail.name;
+      product.detail.brand.value = detail.brand;
+      product.detail.pick_palce.value = detail.pick_palce;
+      product.detail.save_time.value = detail.save_time;
+      product.detail.weight.value = detail.weight;
+      product.detail.description.value = detail.description;
+      product.pImgList = pImgList;
+
+      this.setState({ product });
+    }
+  }
   componentWillReceiveProps(nextProps) {
     console.log(this.props, nextProps);
   }
@@ -119,9 +157,7 @@ class Cart extends Component {
         </Swiper>
         <View className="headerContent">
           <View className="left">
-            <Text className="name">
-              {product.name}afafakjfasfbhasfhaksfkjasfhakj
-            </Text>
+            <Text className="name">{product.name}</Text>
             <Text className="description">{product.description}</Text>
           </View>
           <View className="right">

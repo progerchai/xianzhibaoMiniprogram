@@ -7,10 +7,9 @@ export default class FqProductList extends Component {
   }
 
   state = {};
-  handleClickProductItem(id) {
+  handleClickProductItem(pid) {
     // 跳转到商品详情页面
-    console.log(id);
-    // Taro.redirectTo({ url: "/pages/classification/classification?id=" + id });
+    Taro.redirectTo({ url: "/pages/product/product?pid=" + pid });
   }
   render() {
     let { product_list } = this.props;
@@ -18,7 +17,10 @@ export default class FqProductList extends Component {
       <View className="productflow">
         {product_list.map(item => {
           return (
-            <View className="product_item">
+            <View
+              className="product_item"
+              onClick={this.handleClickProductItem.bind(this, item.pid)}
+            >
               <View className="product_box">
                 <Image
                   className="product_image"

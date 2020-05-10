@@ -26,7 +26,20 @@ export const get_index_products = async () => {
     return _.get(res, "data");
   }
 };
+
+//获取商品详情
+export const get_product_detail = async pid => {
+  const res = await request({
+    path: "index/get_product_detail",
+    method: "GET",
+    data: { pid: pid }
+  });
+  if (_.get(res, "statusCode") === 200) {
+    return _.get(res, "data");
+  }
+};
 export default {
   get_index_message,
-  get_index_products
+  get_index_products,
+  get_product_detail
 };
