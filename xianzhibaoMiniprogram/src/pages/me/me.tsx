@@ -253,7 +253,6 @@ class Me extends Component {
           </View>
         </View>
         <View className="authMessage">auth@proger</View>
-        {/* TODO:底部增加auth@proger@gmail.com 身份信息*/}
         <FqBottom current={4} />
       </View>
     );

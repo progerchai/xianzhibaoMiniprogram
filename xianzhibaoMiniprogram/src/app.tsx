@@ -2,7 +2,7 @@ import Taro, { Component, Config } from "@tarojs/taro";
 import { Provider } from "@tarojs/redux";
 
 import Index from "./pages/index";
-
+import server from "./service";
 import configStore from "./store";
 
 import "./app.scss";
@@ -49,6 +49,7 @@ class App extends Component {
     }
   };
   componentWillMount() {
+    let that = this;
     Taro.getSetting()
       .then(res => {
         if (res.authSetting["scope.userInfo"]) {
@@ -70,6 +71,27 @@ class App extends Component {
       .catch(err => {
         console.log(err);
       });
+    //获取用户openid
+    Taro.login({
+      success: function(res) {
+        if (res.code) {
+          that.get_openid(res.code);
+          //发起网络请求
+        } else {
+          console.log("登录失败！" + res.errMsg);
+        }
+      }
+    });
+  }
+  //function 获取用户openid
+  async get_openid(code) {
+    let openidResult = await server.auth.getOpenid(code);
+    if (openidResult) {
+      Taro.setStorage({
+        key: "openid",
+        data: openidResult.openid
+      });
+    }
   }
   componentDidMount() {}
 
