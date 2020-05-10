@@ -10,10 +10,33 @@ export default class FqCartList extends Component {
 
   state = {
     //   userInfoPage为卖家信息页面
-    cartList: []
+    cartList: [],
+    totalPrice: 0
   };
   componentDidMount() {
     this.setState({ cartList: this.props.products });
+  }
+  //遍历购物车数据，检查到选中状态到商品就去计算总价
+  compouteTotalPrice() {
+    let cartList = this.state.cartList;
+    let totalPrice = 0;
+    cartList.forEach((cart, index) => {
+      let count = 0;
+      cart.productList.forEach(item => {
+        if (item.isChoosed) {
+          count++;
+          //判断一个项目是否应该全选
+          if (count === cart.productList.length) {
+            cartList[index].isAllChoosed = true;
+          } else {
+            cartList[index].isAllChoosed = false;
+          }
+          totalPrice = totalPrice + parseInt(item.number * item.price * 100);
+        }
+      });
+    });
+    this.setState({ cartList });
+    this.props.compouteTotalPrice(totalPrice);
   }
   handleItemAllSelect(index) {
     console.log("单个卖家商品全选或取消全选");
@@ -24,6 +47,7 @@ export default class FqCartList extends Component {
       item.isChoosed = !chooseFlag;
     });
     this.setState({ cartList });
+    this.compouteTotalPrice();
   }
   handleItemSelect(productIndex, index) {
     console.log("单个商品选择或取消", productIndex, index);
@@ -31,6 +55,7 @@ export default class FqCartList extends Component {
     let chooseFlag = cartList[index].productList[productIndex].isChoosed;
     cartList[index].productList[productIndex].isChoosed = !chooseFlag;
     this.setState({ cartList });
+    this.compouteTotalPrice();
     // TODO:当同一个卖家所有商品都被选择后，外部当全选按钮也应该是选中状态
   }
   //购物车商品数量变化函数
@@ -38,6 +63,7 @@ export default class FqCartList extends Component {
     let cartList = this.state.cartList;
     cartList[index].productList[productIndex].number = value;
     this.setState({ cartList });
+    this.compouteTotalPrice();
   }
   render() {
     let { cartList } = this.state;

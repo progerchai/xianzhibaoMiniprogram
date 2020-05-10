@@ -12,9 +12,7 @@ export default class FqBuyBar extends Component {
     // 被勾选中的商品数量
     chooseNumber: 1,
     // 全选
-    isAllSelect: false,
-    // 商品总价格
-    priceText: "298.00"
+    isAllSelect: false
   };
 
   handleHomeClick() {
@@ -25,6 +23,7 @@ export default class FqBuyBar extends Component {
   handleAllSelect() {
     //进行全选操作和取消全选操作
     this.setState({ isAllSelect: !this.state.isAllSelect });
+    this.props.isAllSelectFunction();
   }
 
   componentDidMount() {}
@@ -36,8 +35,13 @@ export default class FqBuyBar extends Component {
     // 获取机型
     const system = Taro.getSystemInfoSync();
     const isIphoneX = system.model.indexOf("iPhone X") >= 0;
-    let { chooseNumber, isAllSelect, priceText } = this.state;
-    let { products = [], type = "cart", isCollected = false } = this.props;
+    let { chooseNumber, isAllSelect } = this.state;
+    let {
+      products = [],
+      type = "cart",
+      isCollected = false,
+      priceText = "0"
+    } = this.props;
 
     return (
       <View>

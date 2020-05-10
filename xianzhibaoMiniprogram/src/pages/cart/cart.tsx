@@ -59,27 +59,38 @@ class Cart extends Component {
         ],
         isAllChoosed: false
       }
-    ]
+    ],
+    priceText: "0"
   };
   componentWillReceiveProps(nextProps) {
     console.log(this.props, nextProps);
   }
+  //计算总价
+  compouteTotalPrice(totalPrice) {
+    console.log("totalPrice", totalPrice);
+    let priceText = (totalPrice / 100).toFixed(2);
+    console.log(priceText);
+    this.setState({ priceText });
+  }
 
-  componentWillUnmount() {}
-
-  componentDidShow() {}
-
-  componentDidHide() {}
-
+  //购物车整页全选-与取消
+  isAllSelectFunction() {}
   render() {
-    let { products } = this.state;
+    let { products, priceText } = this.state;
     return (
       <View className="container">
         {products.length === 0 ? (
           <NoData desc={"购物车为空哦"} icon={"wushuju"} />
         ) : null}
-        <FqCartList products={this.state.products} />
-        <FqBuyBar products={this.state.products} />
+        <FqCartList
+          products={this.state.products}
+          compouteTotalPrice={this.compouteTotalPrice.bind(this)}
+        />
+        <FqBuyBar
+          products={this.state.products}
+          priceText={priceText}
+          isAllSelectFunction={this.isAllSelectFunction.bind(this)}
+        />
         <FqBottom current={3} />
       </View>
     );
