@@ -1,4 +1,4 @@
-import Taro, { Component } from "@tarojs/taro";
+import Taro, { Component, useShareAppMessage } from "@tarojs/taro";
 import {
   View,
   Button,
@@ -11,6 +11,7 @@ import { AtIcon, AtFloatLayout } from "taro-ui";
 import NoData from "../../components/no_data";
 import FqBuyBar from "../../components/buy_bar";
 import "./product.scss";
+import share from "./share";
 
 class Cart extends Component {
   config = {
@@ -87,6 +88,10 @@ class Cart extends Component {
         "/pages/product/mark_people?sellerInfo=" + encodeURI(sellerInfoString)
     });
   }
+  // 分享商品
+  handleShare(product) {
+    share(product);
+  }
 
   render() {
     let { product, isShowFloatLayout } = this.state;
@@ -125,6 +130,7 @@ class Cart extends Component {
               value="share"
               size="30"
               color="#6190e8"
+              onClick={this.handleShare.bind(this, product)}
             />
           </View>
           <View className="feeAndNumber">
