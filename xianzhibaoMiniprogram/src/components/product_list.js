@@ -35,6 +35,7 @@ export default class FqProductList extends Component {
             </View>
           );
         })}
+        <View className="bottomSpace"></View>
       </View>
     );
   }

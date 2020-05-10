@@ -115,12 +115,20 @@ class Index extends Component {
     //节点加载完毕，关闭骨架屏
     this.setState({ loading: false });
     this.requestIndexMessage();
+    this.getIndexProducts();
     //获取地址
     let city = Taro.getStorageSync("city");
     if (city) {
       this.setState({ city });
     } else {
       this.getLocation();
+    }
+  }
+  // 获取首页商品数据
+  async getIndexProducts() {
+    const result = await service.index_page.get_index_products();
+    if (result) {
+      this.setState({ product_list: result.goods });
     }
   }
   // 获取用户的地理位置
